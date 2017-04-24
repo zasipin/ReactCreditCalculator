@@ -8,4 +8,4 @@ var ConsumerLoan = React.createClass({
 	}
 });
 
-export {ConsumerLoan};
+export default ConsumerLoan;

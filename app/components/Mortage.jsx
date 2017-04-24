@@ -8,4 +8,4 @@ var Mortage = React.createClass({
 	}
 });
 
-export {Mortage};
+export default Mortage;

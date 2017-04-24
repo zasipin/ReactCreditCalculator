@@ -1,9 +1,11 @@
-var React = require('react');
+import React from'react';
+import Nav from 'Nav';
 
 var Main = (props) => {
   return (
     <div>
       <div>
+        <Nav />
         <div>
           <p>Main.jsx Rendered</p>
           {props.children}
@@ -13,4 +15,5 @@ var Main = (props) => {
   );
 }
 
-module.exports = Main;
+export default Main;
+

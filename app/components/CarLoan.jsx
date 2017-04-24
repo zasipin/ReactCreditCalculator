@@ -8,4 +8,4 @@ var CarLoan = React.createClass({
 	}
 });
 
-export {CarLoan};
+export default CarLoan;

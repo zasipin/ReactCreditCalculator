@@ -4,8 +4,10 @@
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "SET NODE_ENV=test&& karma start",
+    "build": "webpack",
+    "start": "npm run build && node server.js",
+    "build_production": "SET NODE_ENV=production&& webpack"
   },
   "author": "Andrew Mead",
   "license": "MIT",
@@ -26,6 +28,9 @@
     "foundation-sites": "6.2.0",
     "jquery": "^2.2.1",
     "node-sass": "^3.4.2",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^3.1.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
