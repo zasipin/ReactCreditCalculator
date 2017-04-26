@@ -12,7 +12,7 @@ class CreditParams extends React.Component{
                         <label>
                             Sum
                         <input type="number" ref="creditSum" onChange={() => {
-                            var sum = this.refs.creditSum;
+                            var sum = this.refs.creditSum.value;
                             dispatch(actions.setCreditSum(sum));
                         }}/>                    
                         </label>
