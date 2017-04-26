@@ -1,11 +1,11 @@
 import React from 'react';
 
-var Mortage = React.createClass({
+class Mortage extends React.Component{
 	render() {
 		return (
-		<h3>Mortage component</h3>
+			<h3>Mortage component</h3>
 		)
 	}
-});
+};
 
 export default Mortage;

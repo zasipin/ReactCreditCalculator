@@ -1,11 +1,15 @@
 import React from 'react';
+import CreditParams from 'CreditParams';
 
-var ConsumerLoan = React.createClass({
+class ConsumerLoan extends React.Component{
 	render() {
 		return (
-		<h3>ConsumerCredit component</h3>
+		<div>
+			<h3>ConsumerCredit component</h3>
+			<CreditParams />
+		</div>
 		)
 	}
-});
+};
 
 export default ConsumerLoan;
