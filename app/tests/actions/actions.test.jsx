@@ -14,4 +14,15 @@ describe('Actions', () => {
 
         expect(res).toEqual(action);
     });
+
+    it('should generate SET_PERCENTS', () => {
+        var action = {
+            type: 'SET_PERCENTS',
+            percents: 123
+        }
+
+        var res = actions.setPercents(action.percents);
+
+        expect(res).toEqual(action);
+    });
 });

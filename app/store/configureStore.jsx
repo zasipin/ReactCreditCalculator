@@ -12,6 +12,11 @@ export var configure = (initialState = {}) => {
         auth: authReducer,
         creditProps: creditPropsReducer
     });
+    
+    initialState.creditProps = {
+        sum: 100000,
+        percents: 10
+    }
 
     var store = redux.createStore(reducer, initialState, redux.compose(
         redux.applyMiddleware(thunk),

@@ -1,7 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import CreditParams from 'CreditParams';
 
-class ConsumerLoan extends React.Component{
+
+export class ConsumerLoan extends React.Component{
 	render() {
 		return (
 		<div>
@@ -12,4 +15,6 @@ class ConsumerLoan extends React.Component{
 	}
 };
 
-export default ConsumerLoan;
+export default connect((state) => {
+    return state;
+})(ConsumerLoan);
