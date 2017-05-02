@@ -1,9 +1,14 @@
 import React from 'react';
 
+import CreditParams from 'CreditParams';
+
 class Mortage extends React.Component{
 	render() {
 		return (
-			<h3>Mortage component</h3>
+			<div>
+				<h3>Mortage component</h3>
+				<CreditParams />
+			</div>	
 		)
 	}
 };

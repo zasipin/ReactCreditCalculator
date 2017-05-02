@@ -5,6 +5,8 @@ import * as actions from 'actions';
 class CreditParams extends React.Component{
 	render() {
         var {dispatch, sum, percents} = this.props;
+        var step = 10000, 
+            min = 0;
 
         function showSum(){
             return <span>sum: {sum}</span>;
@@ -16,7 +18,7 @@ class CreditParams extends React.Component{
                     <form>
                         <label>
                             Sum
-                            <input type="number" ref="creditSum" value={sum}
+                            <input type="number" ref="creditSum" value={sum} step={step} min={min}
                             onChange={() => {
                                 var sum = this.refs.creditSum.value;
                                 dispatch(actions.setCreditSum(sum));
@@ -26,7 +28,7 @@ class CreditParams extends React.Component{
 
                         <label>
                             Percents
-                            <input type="number" ref="percents" value={percents}
+                            <input type="number" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;
                                 dispatch(actions.setPercents(percents));
