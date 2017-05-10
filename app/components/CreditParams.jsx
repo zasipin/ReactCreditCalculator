@@ -8,10 +8,8 @@ class CreditParams extends React.Component{
         var min = 0;
 
 		return (
-            <div className="row">
-                <div className="credit-form columns small-centered medium-4 small-12">   
-                    <form>
-                        <label>
+            <div>
+                <label>
                             Sum
                             <input type="number" ref="creditSum" value={sum} step={step} min={min}
                             onChange={() => {
@@ -28,9 +26,16 @@ class CreditParams extends React.Component{
                                 dispatch(actions.setPercents(percents));
                             }}/>                    
                         </label>
+               
+
+            {/*<div className="row">
+                <div className="credit-form columns small-centered medium-4 small-12">   
+                    <form>
+                        
                     </form>    
                 </div>
-            </div>
+            </div>*/}
+            </div> 
 		)
 	}
 };

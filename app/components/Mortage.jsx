@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PriceCreditParams from 'PriceCreditParams';
+import CreditParamsForm from 'CreditParamsForm';
 import AnnuitetLoanList from 'AnnuitetLoanList';
 
 class Mortage extends React.Component{
@@ -8,7 +9,9 @@ class Mortage extends React.Component{
 		return (
 			<div>
 				<h3>Mortage component</h3>
-				<PriceCreditParams />
+				<CreditParamsForm>
+					<PriceCreditParams />
+				</CreditParamsForm>
 				<AnnuitetLoanList />
 			</div>	
 		)

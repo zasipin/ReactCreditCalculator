@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import CreditParams from 'CreditParams';
+import CreditParamsForm from 'CreditParamsForm';
+
 import AnnuitetLoanList from 'AnnuitetLoanList';
 
 
@@ -18,7 +20,9 @@ export class ConsumerLoan extends React.Component{
 		return (
 		<div>
 			<h3>ConsumerCredit component</h3>
-			<CreditParams />
+			<CreditParamsForm>
+				<CreditParams />
+			</CreditParamsForm>
 			<AnnuitetLoanList />
 		</div>
 		)

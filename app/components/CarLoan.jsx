@@ -1,12 +1,15 @@
 import React from 'react';
-import CreditParams from 'CreditParams';
+import PriceCreditParams from 'PriceCreditParams';
+import CreditParamsForm from 'CreditParamsForm';
 
 class CarLoan extends React.Component{
 	render() {
 		return (
 		<div>	
 			<h3>Car loan component</h3>
-			<CreditParams />
+			<CreditParamsForm>
+				<PriceCreditParams />
+			</CreditParamsForm>
 		</div>
 		)
 	}

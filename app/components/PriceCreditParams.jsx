@@ -8,9 +8,7 @@ class PriceCreditParams extends React.Component{
         var min = 0;
 
 		return (
-            <div className="row">
-                <div className="credit-form columns small-centered medium-4 small-12">   
-                    <form>
+            <div>
                         <label>
                             Price
                             <input type="number" ref="price" value={price} step={step} min={min}
@@ -40,8 +38,6 @@ class PriceCreditParams extends React.Component{
                                 dispatch(actions.setPercents(percents));
                             }}/>                    
                         </label>
-                    </form>    
-                </div>
             </div>
 		)
 	}
