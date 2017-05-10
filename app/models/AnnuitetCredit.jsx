@@ -14,7 +14,7 @@ export class AnnuitetCredit{
             overpay: 0,
             overpayPercentage: 0
         };
-        this.recalculate(this.state.sum, this.state.percents);
+        return this.recalculate(this.state.sum, this.state.percents);
     }
 
     recalculate(sum, percents) {
@@ -26,7 +26,7 @@ export class AnnuitetCredit{
             state.totalPay = state.monthlyPay * state.months;
             state.overpay = state.totalPay - sum;
             state.overpayPercentage = (state.overpay / sum) * AnnuitetCredit.ToPercents;                 
-        return state;
+        return this;
     }
 
     getData(){

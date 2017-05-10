@@ -13,3 +13,13 @@ export function setPercents(percents) {
         percents
     }
 }
+
+export function addMonthsItem(sum, percents, months) {
+    months = months > 0 ? months : 12;
+    return {
+        type: 'ADD_MONTHS',
+        sum, 
+        percents,
+        months
+    }
+}

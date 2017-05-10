@@ -5,18 +5,23 @@ import {AnnuitetCredit} from 'AnnuitetCredit';
 
 export class AnnuitetCreditComponent extends React.Component{
 	render() {
-        var {sum, percents} = this.props;
-        var credit = new AnnuitetCredit(sum, percents, 12);
-        var creditData = credit.getData();
+        var {overpay, monthlyPay, totalPay, overpayPercentage, months} = this.props;
+        // var credit = new AnnuitetCredit(sum, percents, 12);
+        // var creditData = credit.getData();
 		return (
 		<div>
-			sum: {sum}, percents: {percents}
-            overpay: {creditData.overpay}
+			months: {months}&nbsp;
+			payment: {parseInt(monthlyPay)}&nbsp; 
+			totalPay: {parseInt(totalPay)}&nbsp; 
+            overpay: {parseInt(overpay)}&nbsp;
+			overpayPercentage: {parseFloat(overpayPercentage).toFixed(2)}
 		</div>
 		)
 	}
 };
 
-export default connect((state) => {
-    return state.creditProps;
-})(AnnuitetCreditComponent);
+export default connect(
+	// (state) => {
+    // return state.creditProps;
+// }
+)(AnnuitetCreditComponent);

@@ -1,8 +1,9 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
+
 import {
     // searchTextReducer, showCompletedReducer, todosReducer, 
-    authReducer, creditPropsReducer} from 'reducers';
+    authReducer, creditPropsReducer, annuitetPaymentsReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
     var reducer = redux.combineReducers({
@@ -10,12 +11,15 @@ export var configure = (initialState = {}) => {
         // showCompleted: showCompletedReducer,
         // todos: todosReducer,
         auth: authReducer,
-        creditProps: creditPropsReducer
+        creditProps: creditPropsReducer,
+        annuitetPayments: annuitetPaymentsReducer
+
     });
     
     initialState.creditProps = {
         sum: 100000,
-        percents: 10
+        percents: 10,
+        years: 30
     }
 
     var store = redux.createStore(reducer, initialState, redux.compose(

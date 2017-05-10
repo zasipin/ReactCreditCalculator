@@ -4,8 +4,12 @@ import {Provider} from 'react-redux';
 
 import router from 'app/router';
 import {configure} from 'configureStore';
+import * as actions from 'actions';
 
 var store = configure();
+var state = store.getState(); 
+for(var years = 1; years <= state.creditProps.years; years++ )
+  store.dispatch(actions.addMonthsItem(state.creditProps.sum, state.creditProps.percents, 12 * years));
 
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css')
