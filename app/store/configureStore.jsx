@@ -13,13 +13,15 @@ export var configure = (initialState = {}) => {
         auth: authReducer,
         creditProps: creditPropsReducer,
         annuitetPayments: annuitetPaymentsReducer
-
     });
     
     initialState.creditProps = {
         sum: 100000,
         percents: 10,
-        years: 30
+        years: 30,
+        step: 10000,
+        price: 100000,
+        downPayment: 0
     }
 
     var store = redux.createStore(reducer, initialState, redux.compose(

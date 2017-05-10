@@ -38,7 +38,6 @@ module.exports = {
       reducers: 'app/reducers/reducers.jsx',
       configureStore: 'app/store/configureStore.jsx',
       AnnuitetCredit: 'app/models/AnnuitetCredit.jsx'
-
     },
     extensions: ['', '.js', '.jsx']
   },

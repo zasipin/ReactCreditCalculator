@@ -6,6 +6,25 @@ export function setCreditSum(sum) {
     }
 }
 
+export function setPrice(price, downPayment) {
+    price = price >= 0 ? price : 0;
+    return {
+        type: 'SET_PRICE',
+        price,
+        downPayment
+    }
+}
+
+
+export function setDownPayment(downPayment, price) {
+    downPayment = downPayment >= 0 ? downPayment : 0;
+    return {
+        type: 'SET_DOWN_PAYMENT',
+        downPayment,
+        price
+    }
+}
+
 export function setPercents(percents) {
     percents = percents >= 0 ? percents : 0;
     return {

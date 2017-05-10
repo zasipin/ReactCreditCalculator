@@ -15,7 +15,19 @@ export function creditPropsReducer(state = {}, action){
             return {
                 ...state,
                 percents: action.percents
-            }    
+            }
+        case 'SET_PRICE':
+            return {
+                ...state,
+                price: action.price,
+                sum: action.price - state.downPayment 
+            }
+        case 'SET_DOWN_PAYMENT':
+            return {
+                ...state,
+                downPayment: action.downPayment,
+                sum: state.price - action.downPayment 
+            }            
         default:
             return state;
     }    
@@ -31,6 +43,14 @@ export function annuitetPaymentsReducer(state = [], action){
             return state.map((item) => {
                 return item.recalculate(item.state.sum, action.percents);
             });
+        case 'SET_PRICE': 
+            return state.map((item) => {
+                return item.recalculate(action.price - action.downPayment, item.state.percents);
+            });   
+        case 'SET_DOWN_PAYMENT': 
+            return state.map((item) => {
+                return item.recalculate(action.price - action.downPayment, item.state.percents);
+            });       
         case 'ADD_MONTHS':
             return [...state, new AnnuitetCredit(action.sum, action.percents, action.months)];    
         default:

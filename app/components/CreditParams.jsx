@@ -4,13 +4,8 @@ import * as actions from 'actions';
 
 class CreditParams extends React.Component{
 	render() {
-        var {dispatch, sum, percents} = this.props;
-        var step = 10000, 
-            min = 0;
-
-        function showSum(){
-            return <span>sum: {sum}</span>;
-        }
+        var {dispatch, sum, percents, step} = this.props;
+        var min = 0;
 
 		return (
             <div className="row">
@@ -43,6 +38,7 @@ class CreditParams extends React.Component{
 export default connect((state) => {
     return {
         sum: state.creditProps.sum,
-        percents: state.creditProps.percents
+        percents: state.creditProps.percents,
+        step: state.creditProps.step
     }
 })(CreditParams);
