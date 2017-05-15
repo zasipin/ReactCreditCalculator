@@ -1,0 +1,8 @@
+// Needs latest Compass, add '@import "compass"' to your scss
+// Permalink - use to edit and share this gradient:
+// http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+25,207cca+100,7db9e8+100
+.middle-bar{
+background-color: #1e5799; // Old browsers
+@include filter-gradient(#1e5799, #7db9e8, horizontal); // IE6-9
+@include background-image(linear-gradient(left, #1e5799 0%,#2989d8 25%,#207cca 100%,#7db9e8 100%));
+}

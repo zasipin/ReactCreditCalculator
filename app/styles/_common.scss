@@ -1,8 +1,32 @@
-p {
-  color: #777;
+a {
+color: $light-green;
+  
 }
 
-.active {
-  font-weight: bold;
-  color: blueviolet
+a:hover {
+    color: $light-green-darkend;
+  }
+
+
+.menu {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  li a.active {
+    // font-weight: bold;
+    color: $almost-white;
+    background-color: $light-green;
+    border-radius: 3px;
+    // padding: 0.5em 0.3em;
+  }
+
+}
+ 
+body {
+  background-color: $light-creme;
+  color: $light-green;
+}
+
+p {
+  color: #777;
 }

@@ -6,8 +6,8 @@ class Nav extends React.Component{
     return (
 			<div className="row top-menu">
 				
-    		<div className="small-centered large-10 small-12 columns">
-      		<ul className="menu menu-centered">
+    		<div className="small-centered large-10 small-12 columns menu-centered">
+      		<ul className="menu">
         		<li><IndexLink to="/" activeClassName="active">Потребительский кредит</IndexLink></li>
         		<li><Link to="/mortage" activeClassName="active">Ипотека</Link></li>
         		<li><Link to="/car" activeClassName="active">Автокредит</Link></li>
