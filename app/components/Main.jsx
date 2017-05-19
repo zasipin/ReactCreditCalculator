@@ -3,8 +3,8 @@ import Nav from 'Nav';
 
 var Main = (props) => {
   return (
-    <div>
-      <div>
+    <div className="row">
+      <div className="large-12">
         <Nav />
         <div>
           <p>Main.jsx Rendered</p>

@@ -1,0 +1,27 @@
+table.loan-table {
+   
+    color: $light-green;
+    border: none;
+
+    thead {
+      color: $light-green;
+      background-color: $light-creme;
+      border-width: 0px;
+      border-color: $light-green-darkend;
+      border-bottom-width: 4px ;
+    }
+
+    tbody {
+      border: none;
+    }
+
+    tr td {
+      background-color: $light-creme;
+      border-color: $light-green;
+      border-style: solid;
+      border-width: 0px;
+      border-bottom-width: 1px ;
+    }
+    
+  
+}

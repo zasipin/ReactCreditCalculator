@@ -16,7 +16,20 @@ export class AnnuitetLoanList extends React.Component{
 
 		return (
 		<div>
-			{renderAnnutitLoanList()}			
+			<table className="unstriped loan-table">
+				  <thead>
+						<tr>
+							<th width="150">Кол-во лет (мес)</th>
+							<th>Ежемес. платеж</th>
+							<th width="150">Общая сумма платежей</th>
+							<th width="150">Переплата</th>
+							<th width="150">Переплата %</th>
+						</tr>
+					</thead>
+					<tbody>
+						{renderAnnutitLoanList()}			
+					</tbody>	
+			</table>
 		</div>
 		)
 	}
