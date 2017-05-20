@@ -9,7 +9,8 @@ export function creditPropsReducer(state = {}, action){
         case 'SET_CREDIT_SUM':
             return {
                 ...state,
-                sum: action.sum
+                sum: action.sum,
+                price: +action.sum + (+state.downPayment)
             }
         case 'SET_PERCENTS':
             return {
