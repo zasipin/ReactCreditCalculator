@@ -19,7 +19,6 @@ export class ConsumerLoan extends React.Component{
 
 		return (
 		<div>
-			<h3>ConsumerCredit component</h3>
 			<CreditParamsForm>
 				<CreditParams />
 			</CreditParamsForm>

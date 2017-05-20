@@ -8,7 +8,6 @@ class Mortage extends React.Component{
 	render() {
 		return (
 			<div>
-				<h3>Mortage component</h3>
 				<CreditParamsForm>
 					<PriceCreditParams />
 				</CreditParamsForm>
