@@ -4,7 +4,7 @@ import {Link, IndexLink} from 'react-router';
 class Nav extends React.Component{
   render () {
     return (
-			<div className="row top-menu">
+			<div className="row top-menu medium-12">
 				
     		<div className="small-centered large-10 small-12 columns menu-centered">
       		<ul className="menu">

@@ -1,12 +1,14 @@
 import React from'react';
 import Nav from 'Nav';
+import MiddleBar from 'MiddleBar';
 
 var Main = (props) => {
   return (
-    <div className="row">
-      <div className="large-12">
+    <div className=" main">
+      <div >
         <Nav />
-        <div>
+        <MiddleBar />
+        <div className="row">
           <p>Main.jsx Rendered</p>
           {props.children}
         </div>

@@ -5,7 +5,9 @@
 
 
 @import 'common';
+@import 'foundation-redefinition';
 
 @import './menu/top-menu';
 @import './components/credit-form';
 @import './components/annuitetLoanList';
+@import './middle-bar/middle-bar';

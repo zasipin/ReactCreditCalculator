@@ -20,11 +20,11 @@ export class AnnuitetCreditComponent extends React.Component{
 
 		return (
 		<tr>
-			<td><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
-			<td>{parseInt(monthlyPay)}</td> 
-			<td>{parseInt(totalPay)}</td> 
-            <td>{parseInt(overpay)}</td>
-			<td>{parseFloat(overpayPercentage).toFixed(2)}</td>
+			<td className="small-text"><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
+			<td>{parseInt(monthlyPay)} р.</td> 
+			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 
+            <td><span className="dark-text">{parseInt(overpay)}</span> р.</td>
+			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>
 		</tr>
 		)
 	}
