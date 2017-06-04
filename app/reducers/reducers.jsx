@@ -15,7 +15,7 @@ export function creditPropsReducer(state = {}, action){
         case 'SET_PERCENTS':
             return {
                 ...state,
-                percents: action.percents
+                percents: +action.percents
             }
         case 'SET_PRICE':
             return {
@@ -42,7 +42,7 @@ export function annuitetPaymentsReducer(state = [], action){
             });
         case 'SET_PERCENTS':
             return state.map((item) => {
-                return item.recalculate(item.state.sum, action.percents);
+                return item.recalculate(item.state.sum, +action.percents);
             });
         case 'SET_PRICE': 
             return state.map((item) => {

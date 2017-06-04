@@ -21,6 +21,8 @@ export class AnnuitetCredit{
             var monthlyPercent = percents / 12 / AnnuitetCredit.ToPercents;
             var power = Math.pow((1 + monthlyPercent), this.state.months);
             var state = this.state;
+            state.sum = sum;
+            state.percents = percents;
             state.annuitetCoefficient = monthlyPercent * power / (power - 1);
             state.monthlyPay = sum * state.annuitetCoefficient;
             state.totalPay = state.monthlyPay * state.months;
