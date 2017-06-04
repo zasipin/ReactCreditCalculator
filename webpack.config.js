@@ -4,6 +4,12 @@ var path = require('path');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
+  // entry: {
+  //   vendor: ['script!jquery/dist/jquery.min.js',
+  //            'script!foundation-sites/dist/foundation.min.js',
+  //            'script!react/dist/react.min.js'],
+  //   app: './app/app.jsx'
+  // },
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
@@ -16,7 +22,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
-    })
+     })
+  //   ,
+
+  //   new webpack.optimize.CommonsChunkPlugin({
+  //     name: "vendor",
+
+  //     filename: "vendor.js",
+  //     // (Give the chunk a different name)
+
+  //     minChunks: Infinity,
+  //     // (with more entries, this ensures that no other module
+  //     //  goes into the vendor chunk)
+  //   })
   ],
   output: {
     path: __dirname,
