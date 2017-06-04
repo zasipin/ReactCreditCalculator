@@ -10,7 +10,7 @@ class CreditParams extends React.Component{
 		return (
             <div>
                 <label>
-                            Sum
+                            Сумма кредита
                             <input type="number" ref="creditSum" value={sum} step={step} min={min}
                             onChange={() => {
                                 var sum = this.refs.creditSum.value;
@@ -19,7 +19,7 @@ class CreditParams extends React.Component{
                         </label>
 
                         <label>
-                            Percents
+                            Проценты годовые
                             <input type="number" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;

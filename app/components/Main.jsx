@@ -9,7 +9,6 @@ var Main = (props) => {
         <Nav />
         <MiddleBar />
         <div className="row">
-          <p>Main.jsx Rendered</p>
           {props.children}
         </div>
       </div>

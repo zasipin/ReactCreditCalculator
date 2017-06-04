@@ -4,5 +4,9 @@
   border-radius: 5px;
   padding: 1rem 4rem;
   margin-bottom: 2rem;
-
+  
+  label {
+    color: $light-green;
+    font-size: $form-font-size;
+  }
 }

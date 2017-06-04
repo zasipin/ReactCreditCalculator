@@ -10,7 +10,7 @@ class PriceCreditParams extends React.Component{
 		return (
             <div>
                         <label>
-                            Price
+                            Стоимость
                             <input type="number" ref="price" value={price} step={step} min={min}
                             onChange={() => {
                                 var price = this.refs.price.value,
@@ -20,7 +20,7 @@ class PriceCreditParams extends React.Component{
                         </label>
                         
                         <label>
-                            Down payment
+                            Первоначальный взнос
                             <input type="number" ref="downPayment" value={downPayment} step={step} min={min}
                             onChange={() => {
                                 var downPayment = this.refs.downPayment.value,
@@ -30,7 +30,7 @@ class PriceCreditParams extends React.Component{
                         </label>
 
                         <label>
-                            Percents
+                            Проценты годовые
                             <input type="number" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;
