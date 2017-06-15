@@ -36,4 +36,8 @@ table.loan-table {
         font-size: $small-font-size;
         font-weight: 400;
     }  
+
+  a.show-payments {
+    text-decoration: underline;
+  }
 }

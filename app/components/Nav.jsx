@@ -13,8 +13,7 @@ class Nav extends React.Component{
         		<li><Link to="/car" activeClassName="active">Автокредит</Link></li>
         		<li><Link to="/about" activeClassName="active">О проекте</Link></li>
 					</ul>
-      	</div>
-				
+      	</div>			
 				
 			</div>
     );

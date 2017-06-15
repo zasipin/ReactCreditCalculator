@@ -1,9 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
+
+import * as actions from 'actions';
 
 import {AnnuitetCredit} from 'AnnuitetCredit';
 
 export class AnnuitetCreditComponent extends React.Component{
+
+	onPaymentsClick(e, months) {
+		var {dispatch} = this.props;
+		// e.preventDefault();
+		dispatch(actions.setActiveCreditMonths(months));
+		console.log("On link clicked months", months);
+	}
+
 	render() {
         var {overpay, monthlyPay, totalPay, overpayPercentage, months} = this.props;
         // var credit = new AnnuitetCredit(sum, percents, 12);
@@ -21,7 +32,7 @@ export class AnnuitetCreditComponent extends React.Component{
 		return (
 		<tr>
 			<td className="small-text"><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
-			<td>{parseInt(monthlyPay)} р.</td> 
+			<td><Link to="/payments" onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)} р.</Link></td> 
 			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 
             <td><span className="dark-text">{parseInt(overpay)}</span> р.</td>
 			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>

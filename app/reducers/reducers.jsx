@@ -59,3 +59,15 @@ export function annuitetPaymentsReducer(state = [], action){
     }    
     
 }
+
+export function activeCreditReducer(state = {}, action){
+    switch(action.type){
+        case 'SET_ACTIVE_CREDIT_MONTHS':
+            return {
+                ...state,
+                months: action.months
+            }
+        default:
+            return state;    
+    }
+}

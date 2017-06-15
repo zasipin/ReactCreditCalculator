@@ -42,3 +42,10 @@ export function addMonthsItem(sum, percents, months) {
         months
     }
 }
+
+export function setActiveCreditMonths(months) {
+    return {
+        type: 'SET_ACTIVE_CREDIT_MONTHS',
+        months
+    }
+}

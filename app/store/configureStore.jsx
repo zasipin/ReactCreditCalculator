@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 
 import {
     // searchTextReducer, showCompletedReducer, todosReducer, 
-    authReducer, creditPropsReducer, annuitetPaymentsReducer} from 'reducers';
+    authReducer, creditPropsReducer, annuitetPaymentsReducer,
+    activeCreditReducer } from 'reducers';
 
 export var configure = (initialState = {}) => {
     var reducer = redux.combineReducers({
@@ -12,7 +13,8 @@ export var configure = (initialState = {}) => {
         // todos: todosReducer,
         auth: authReducer,
         creditProps: creditPropsReducer,
-        annuitetPayments: annuitetPaymentsReducer
+        annuitetPayments: annuitetPaymentsReducer,
+        activeCredit: activeCreditReducer
     });
     
     initialState.creditProps = {
