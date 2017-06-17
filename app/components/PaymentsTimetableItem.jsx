@@ -2,9 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 var PaymentsTimetableItem = (props) => {
+    var {months} = props;
 	return (
         <div className="row">
-            Item
+            Item: {months} months
         </div>
     )
 }
@@ -16,5 +17,6 @@ export default connect((state) => {
     //     step: state.creditProps.step,
     //     price: state.creditProps.price,
     //     downPayment: state.creditProps.downPayment
+        months: state.activeCredit.months
     }
 })(PaymentsTimetableItem);

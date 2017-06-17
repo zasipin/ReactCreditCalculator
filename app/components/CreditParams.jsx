@@ -9,25 +9,33 @@ class CreditParams extends React.Component{
 
 		return (
             <div>
-                <label>
-                            Сумма кредита
-                            <input type="number" ref="creditSum" value={sum} step={step} min={min}
+                <div className="row">
+                    <div className="small-7 columns">
+                         <label for="creditSum" className="text-right middle">Сумма кредита</label>
+                    </div>
+
+                    <div className="small-5 columns">                            
+                            <input type="number" id="creditSum" ref="creditSum" value={sum} step={step} min={min}
                             onChange={() => {
                                 var sum = this.refs.creditSum.value;
                                 dispatch(actions.setCreditSum(sum));
                             }}/>                  
-                        </label>
+                    </div>
+                </div>
 
-                        <label>
-                            Проценты годовые
-                            <input type="number" ref="percents" value={percents} min={min}
+                <div className="row">
+                    <div className="small-7 columns">
+                         <label for="percents" className="text-right middle">Проценты годовые</label>
+                    </div>
+                    <div className="small-5 columns">
+                            <input type="number" id="percents" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;
                                 dispatch(actions.setPercents(percents));
                             }}/>                    
-                        </label>
+                    </div>
                
-
+                </div>        
             {/*<div className="row">
                 <div className="credit-form columns small-centered medium-4 small-12">   
                     <form>

@@ -7,7 +7,7 @@ class CreditParamsForm extends React.Component{
         
 		return (
             <div className="row">
-                <div className="credit-form columns small-centered medium-5 large-4 small-12">   
+                <div className="credit-form columns small-centered medium-7 large-6 small-12">   
                     <form>
                         {this.props.children}
                     </form>    
