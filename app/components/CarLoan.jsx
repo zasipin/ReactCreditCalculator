@@ -1,6 +1,7 @@
 import React from 'react';
 import PriceCreditParams from 'PriceCreditParams';
 import CreditParamsForm from 'CreditParamsForm';
+import AnnuitetLoanList from 'AnnuitetLoanList';
 
 class CarLoan extends React.Component{
 	render() {
@@ -9,6 +10,7 @@ class CarLoan extends React.Component{
 			<CreditParamsForm>
 				<PriceCreditParams />
 			</CreditParamsForm>
+			<AnnuitetLoanList />
 		</div>
 		)
 	}
