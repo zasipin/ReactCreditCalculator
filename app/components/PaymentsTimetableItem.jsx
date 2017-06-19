@@ -4,8 +4,14 @@ import {connect} from 'react-redux';
 var PaymentsTimetableItem = (props) => {
     var {months} = props;
 	return (
-        <div className="row">
-            Item: {months} months
+        <div>
+            <tr>
+				<td width="150" className="small-text">Кол-во лет (мес)</td>
+				<td className="small-text">Ежемес. платеж</td>
+				<td width="150" className="small-text">Общая сумма платежей</td>
+				<td width="150" className="small-text">Переплата</td>
+				<td width="150" className="small-text">Переплата %</td>
+			</tr>
         </div>
     )
 }
