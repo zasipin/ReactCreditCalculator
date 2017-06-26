@@ -8,7 +8,7 @@ export class AnnuitetLoanList extends React.Component{
 	
 	render() {
 		var {annuitetPayments} = this.props;
-		var renderAnnutitLoanList = () => {
+		var renderAnnuitetLoanList = () => {
 			return annuitetPayments.map((item, index) => {
 				return <AnnuitetCreditComponent key={index} {...item.getData()}/>
 			});
@@ -28,7 +28,7 @@ export class AnnuitetLoanList extends React.Component{
 							</tr>
 						</thead>
 						<tbody>
-							{renderAnnutitLoanList()}			
+							{renderAnnuitetLoanList()}			
 						</tbody>	
 				</table>
 			</div>	

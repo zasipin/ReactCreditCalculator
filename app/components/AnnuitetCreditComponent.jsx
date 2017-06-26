@@ -12,7 +12,7 @@ export class AnnuitetCreditComponent extends React.Component{
 		var {dispatch} = this.props;
 		// e.preventDefault();
 		dispatch(actions.setActiveCreditMonths(months));
-		console.log("On link clicked months", months);
+		// console.log("On link clicked months", months);
 	}
 
 	render() {
