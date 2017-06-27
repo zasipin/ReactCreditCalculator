@@ -24,10 +24,10 @@ export class AnnuitetMonthlyPayment {
             state.sum = sum;
             state.percents = percents;
             state.annuitetCoefficient = monthlyPercent * power / (power - 1);
-            state.monthlyPay = sum * state.annuitetCoefficient;
-            state.paymentForPercents = sum * monthlyPercent;
-            state.paymentForCredit = state.monthlyPay - state.paymentForCredit;
-            state.leftToPay = state.sum - state.paymentForCredit - state.extraPay;
+            state.monthlyPay = parseInt(sum * state.annuitetCoefficient);
+            state.paymentForPercents = parseInt(sum * monthlyPercent);
+            state.paymentForCredit = state.monthlyPay - state.paymentForPercents;
+            state.leftToPay = parseInt(state.sum - state.paymentForCredit - state.extraPay);
         return this;
     }
 

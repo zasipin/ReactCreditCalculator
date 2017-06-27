@@ -1,19 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-var PaymentsTimetableItem = (props) => {
-    var {payment} = this.props;
-	return (
-        <div>
-            <tr>
-				<td width="150" className="small-text">{payment.months}</td>
-				<td className="small-text">{payment.monthlyPayment}</td>
-				<td width="150" className="small-text">{payment.paymentForCredit}</td>
-				<td width="150" className="small-text">{payment.paymentForPercents}</td>
-				<td width="150" className="small-text">Переплата %</td>
-			</tr>
-        </div>
-    )
+export class PaymentsTimetableItem extends React.Component{
+
+    render() {
+        var {payment, months} = this.props;
+        var paymentState = payment.getData();
+        return (
+            // <div>
+                <tr>
+                    <td width="150">{parseInt(months - paymentState.months)}</td>
+                    <td >{parseInt(paymentState.monthlyPay)}</td>
+                    <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> р.</td>
+                    <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> р.</td>
+                    <td width="150"><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> р.</td>
+                </tr>
+            // </div>
+        )
+    }
 }
 
 export default connect((state) => {
@@ -23,7 +27,7 @@ export default connect((state) => {
     //     step: state.creditProps.step,
     //     price: state.creditProps.price,
     //     downPayment: state.creditProps.downPayment
-        // months: state.activeCredit.months,
+        months: state.activeCredit.months,
         // sum: state.creditParams.sum,
         // percents: state.creditParams.percents
     }

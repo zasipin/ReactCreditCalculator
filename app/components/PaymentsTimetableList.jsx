@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PaymentsTimetableItem from 'PaymentsTimetableItem';
-import AnnuitetMonthlyPayment from 'AnnuitetMonthlyPayment';
+import {AnnuitetMonthlyPayment} from 'AnnuitetMonthlyPayment';
 
 export class PaymentsTimetableList extends React.Component{
 
 	render() {
 		// console.log(this);
-		var {sum, percents, months} = props;
+		var {sum, percents, months} = this.props;
 
 		var renderTimetableItems = () => {
 			var index = 0, items = [];
@@ -15,7 +15,7 @@ export class PaymentsTimetableList extends React.Component{
 			{
 				// sum = 0, percents = 0, months = 0, extraPay = 0
 				var payment = new AnnuitetMonthlyPayment(sum, percents, months);
-				items[items.length] = <PaymentsTimetableItem key={index} payment={payment} />
+				items.push(<PaymentsTimetableItem key={index} payment={payment} />);
 				sum = sum - payment.getData().paymentForCredit;
 				index++;
 			}
@@ -28,11 +28,11 @@ export class PaymentsTimetableList extends React.Component{
 				<table className="unstriped loan-table">
 					<thead>
 						<tr>
-							<th width="150" className="small-text">Кол-во лет (мес)</th>
+							<th width="150" className="small-text">Месяц</th>
 							<th className="small-text">Ежемес. платеж</th>
 							<th width="150" className="small-text">Платеж за кредит</th>
 							<th width="150" className="small-text">Платеж за %</th>
-							<th width="150" className="small-text">Переплата %</th>
+							<th width="150" className="small-text">Остаток долга</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,8 +51,8 @@ export default connect(
     return { 
 		// annuitetPayments: state.annuitetPayments,
 		months: state.activeCredit.months,
-        sum: state.creditParams.sum,
-        percents: state.creditParams.percents
+        sum: state.creditProps.sum,
+        percents: state.creditProps.percents
 	}
 }
 )(PaymentsTimetableList);
