@@ -9,7 +9,7 @@ export class PaymentsTimetableItem extends React.Component{
         return (
             // <div>
                 <tr>
-                    <td width="150">{parseInt(months - paymentState.months)}</td>
+                    <td width="150">{parseInt(months - paymentState.months + 1)}</td>
                     <td >{parseInt(paymentState.monthlyPay)}</td>
                     <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> р.</td>
                     <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> р.</td>
