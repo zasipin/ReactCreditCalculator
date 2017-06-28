@@ -16,7 +16,8 @@ export class AnnuitetCreditComponent extends React.Component{
 	}
 
 	render() {
-        var {overpay, monthlyPay, totalPay, overpayPercentage, months} = this.props;
+        var {overpay, monthlyPay, totalPay, overpayPercentage, months, currentRouteName} = this.props;
+		
         // var credit = new AnnuitetCredit(sum, percents, 12);
         // var creditData = credit.getData();
 
@@ -28,11 +29,13 @@ export class AnnuitetCreditComponent extends React.Component{
 				return 'года';
 			return 'лет';
 		}
-
+		// console.log(this);
+		// var currentRouteName = this.props.routes[this.props.routes.length - 1];
+		var linkTo = `${currentRouteName}/payments`;
 		return (
 		<tr>
 			<td className="small-text"><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
-			<td><Link to="/payments" onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)} р.</Link></td> 
+			<td><Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)} р.</Link></td> 
 			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 
             <td><span className="dark-text">{parseInt(overpay)}</span> р.</td>
 			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>

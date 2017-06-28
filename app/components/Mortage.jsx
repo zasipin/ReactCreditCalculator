@@ -15,7 +15,8 @@ class Mortage extends React.Component{
 				<CreditParamsForm>
 					<PriceCreditParams />
 				</CreditParamsForm>
-				<AnnuitetLoanList />
+				{this.props.children}
+				{/*<AnnuitetLoanList />*/}
 			</div>	
 		)
 	}

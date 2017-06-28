@@ -8,6 +8,7 @@ export class PaymentsTimetableList extends React.Component{
 	render() {
 		// console.log(this);
 		var {sum, percents, months} = this.props;
+		// var currentRouteName = this.props.location.pathname;
 
 		var renderTimetableItems = () => {
 			var index = 0, items = [];
@@ -15,7 +16,7 @@ export class PaymentsTimetableList extends React.Component{
 			{
 				// sum = 0, percents = 0, months = 0, extraPay = 0
 				var payment = new AnnuitetMonthlyPayment(sum, percents, months);
-				items.push(<PaymentsTimetableItem key={index} payment={payment} />);
+				items.push(<PaymentsTimetableItem key={index} payment={payment}/>);
 				sum = sum - payment.getData().paymentForCredit;
 				index++;
 			}

@@ -8,9 +8,11 @@ export class AnnuitetLoanList extends React.Component{
 	
 	render() {
 		var {annuitetPayments} = this.props;
+		var currentRouteName = this.props.location.pathname;
+
 		var renderAnnuitetLoanList = () => {
 			return annuitetPayments.map((item, index) => {
-				return <AnnuitetCreditComponent key={index} {...item.getData()}/>
+				return <AnnuitetCreditComponent key={index} {...item.getData()} currentRouteName={currentRouteName}/>
 			});
 		}
 
