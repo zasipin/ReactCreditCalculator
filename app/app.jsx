@@ -15,6 +15,8 @@ for(var years = 1; years <= state.creditProps.years; years++ )
 require('style!css!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
 
+// var elem = new Foundation.ResponsiveMenu($('#1top-animated-menu'));
+
 // App css
 require('style!css!sass!applicationStyles')
 

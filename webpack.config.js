@@ -13,6 +13,12 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
+    
+    // 'script!foundation-sites/js/foundation.core.js',
+    // 'script!foundation-sites/js/foundation.util.triggers.js',
+    // 'script!foundation-sites/js/foundation.util.mediaQuery.js',
+    // 'script!foundation-sites/js/foundation.responsiveMenu.js',
+
     './app/app.jsx'
   ],
   externals: {
@@ -21,7 +27,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
-      'jQuery': 'jquery'
+      'jQuery': 'jquery'      
      })
   //   ,
 
