@@ -31,7 +31,8 @@ export class AnnuitetCreditComponent extends React.Component{
 		}
 		// console.log(this);
 		// var currentRouteName = this.props.routes[this.props.routes.length - 1];
-		var linkTo = `${currentRouteName}/payments`;
+		var paymentsRoute = 'payments';
+		var linkTo = currentRouteName ? `${currentRouteName}/${paymentsRoute}` : paymentsRoute;
 		return (
 		<tr>
 			<td className="small-text"><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
