@@ -10,6 +10,14 @@ export class PaymentsTimetableList extends React.Component{
 		var {sum, percents, months} = this.props;
 		// var currentRouteName = this.props.location.pathname;
 
+		var renderEmptyRow = () => {
+			return (
+				<tr>
+					<td colSpan='5' className="text-center">Нет данных</td>
+				</tr>
+			)
+		}
+		
 		var renderTimetableItems = () => {
 			var index = 0, items = [];
 			for(;months > 0; months--)
@@ -20,8 +28,11 @@ export class PaymentsTimetableList extends React.Component{
 				sum = sum - payment.getData().paymentForCredit;
 				index++;
 			}
-			return items;
+			
+			return items.length > 0 ? items : renderEmptyRow();
 		}
+
+		
 
 		return (
 		<div className="row">

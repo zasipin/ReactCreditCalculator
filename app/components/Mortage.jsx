@@ -6,7 +6,9 @@ import AnnuitetLoanList from 'AnnuitetLoanList';
 import BigTextLabel from 'BigTextLabel';
 
 class Mortage extends React.Component{
+	
 	render() {
+		// console.log(this.props);
 		return (
 			<div>
 				<BigTextLabel>

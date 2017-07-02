@@ -11,7 +11,7 @@ class Nav extends React.Component{
         		<li><IndexLink to="/" activeClassName="active">ПОТРЕБИТЕЛЬСКИЙ</IndexLink></li>
         		<li><Link to="/mortage" activeClassName="active">ИПОТЕКА</Link></li>
         		<li><Link to="/car" activeClassName="active">АВТОКРЕДИТ</Link></li>
-        		<li><Link to="/about" activeClassName="active">О ПРОЕКТЕ</Link></li>
+        		{/*<li><Link to="/about" activeClassName="active">О ПРОЕКТЕ</Link></li>*/}
 					</ul>
       	</div>			
 				

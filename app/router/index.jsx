@@ -16,13 +16,20 @@ export default (
               <IndexRoute component={AnnuitetLoanList}/>
               <Route path="payments" component={PaymentsTimetable}/>   
         </Route>
-        <Route path="car" component={CarLoan}/>         
-        <Route path="about" component={About}/>
+        <Route path="car" component={CarLoan}>
+              <IndexRoute component={AnnuitetLoanList}/>
+              <Route path="payments" component={PaymentsTimetable}/>   
+        </Route>           
+
+        {/*<Route path="about" component={About}/>*/}
                  
-        <Route path="payments" component={PaymentsTimetable}/>
-        <IndexRoute component={ConsumerLoan}>
-          
-        </IndexRoute>   
+        {/*<Route path="payments" component={PaymentsTimetable}/>*/}
+
+        <Route component={ConsumerLoan}>
+              <IndexRoute component={AnnuitetLoanList} />
+              <Route path="payments" component={PaymentsTimetable}/>                           
+        </Route>   
+
     </Route>
   </Router>
 )
