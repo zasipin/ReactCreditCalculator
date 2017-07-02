@@ -8,6 +8,7 @@ var PaymentsTimetable = (props) => {
 
 	return (
         <div className="row">
+            <div className="text-center">График платежей</div>
             <PaymentsTimetableList />
         </div>
     )
