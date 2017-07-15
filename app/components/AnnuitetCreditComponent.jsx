@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
+import { withRouter, Link } from 'react-router-dom';
 
 import * as actions from 'actions';
 
@@ -51,8 +52,8 @@ export class AnnuitetCreditComponent extends React.Component{
 	}
 };
 
-export default connect(
+export default withRouter(connect(
 	// (state) => {
     // return state.creditProps;
 // }
-)(AnnuitetCreditComponent);
+)(AnnuitetCreditComponent));

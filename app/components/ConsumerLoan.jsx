@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { withRouter, Route } from 'react-router-dom';
 
 import CreditParams from 'CreditParams';
 import CreditParamsForm from 'CreditParamsForm';
-
-// import AnnuitetLoanList from 'AnnuitetLoanList';
+import AnnuitetLoanList from 'AnnuitetLoanList';
+import PaymentsTimetable from 'PaymentsTimetable';
 
 export class ConsumerLoan extends React.Component{
 	
@@ -21,19 +22,22 @@ export class ConsumerLoan extends React.Component{
 			<CreditParamsForm>
 				<CreditParams />
 			</CreditParamsForm>
-			{/*<AnnuitetLoanList />*/}
-			
+			{/* <AnnuitetLoanList /> */}
+
+			<Route exact path="/consumer" component={AnnuitetLoanList}/>
+			<Route exact path="/consumer/payments" component={PaymentsTimetable}/>
+
 			{this.props.children}
 		</div>
 		)
 	}
 };
 
-export default connect(
+export default withRouter(connect(
 // 	(state) => {
 //     return { 
 // 		annuitetPayments: state.annuitetPayments
 // 	}
 // }
-)(ConsumerLoan);
+)(ConsumerLoan));
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 var BackLink = (props) => {
     var {linkHistory} = props;
@@ -9,7 +9,7 @@ var BackLink = (props) => {
         linkHistory.goBack();
     }
 
-    var backClass = props.backClass || 'float-left';
+    var backClass = (props.backClass || 'float-left') + ' button small back-link';
     var backText = '< Назад';
 
     return (

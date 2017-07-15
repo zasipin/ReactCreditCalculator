@@ -1,5 +1,5 @@
 import React from'react';
-import {Link, IndexLink} from 'react-router';
+import {NavLink, IndexLink} from 'react-router-dom';
 
 class Nav extends React.Component{
   render () {
@@ -15,9 +15,9 @@ class Nav extends React.Component{
 				
   				{/*<div className="top-bar-center">*/}
 						<ul className="menu">
-							<li><IndexLink to="/" activeClassName="active">ПОТРЕБИТЕЛЬСКИЙ</IndexLink></li>
-							<li><Link to="/mortage" activeClassName="active">ИПОТЕКА</Link></li>
-							<li><Link to="/car" activeClassName="active">АВТОКРЕДИТ</Link></li>
+							<li><NavLink to="/consumer" activeClassName="active">ПОТРЕБИТЕЛЬСКИЙ</NavLink></li>
+							<li><NavLink to="/mortage" activeClassName="active">ИПОТЕКА</NavLink></li>
+							<li><NavLink to="/car" activeClassName="active">АВТОКРЕДИТ</NavLink></li>
 							{/*<li><Link to="/about" activeClassName="active">О ПРОЕКТЕ</Link></li>*/}
 						</ul>
 					{/*</div>	*/}

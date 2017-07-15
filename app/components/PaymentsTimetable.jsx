@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import {connect} from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
 
 import PaymentsTimetableList from 'PaymentsTimetableList';
 import BackLink from 'BackLink';
@@ -26,10 +27,10 @@ var PaymentsTimetable = (props) => {
     )
 }
 
-export default connect(
+export default withRouter(connect(
 	(state) => {
     return { 
 		months: state.activeCredit.months,
 	}
 })
-(PaymentsTimetable);
+(PaymentsTimetable));

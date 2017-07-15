@@ -1,9 +1,11 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import PriceCreditParams from 'PriceCreditParams';
 import CreditParamsForm from 'CreditParamsForm';
 import AnnuitetLoanList from 'AnnuitetLoanList';
 import BigTextLabel from 'BigTextLabel';
+import PaymentsTimetable from 'PaymentsTimetable';
 
 class Mortage extends React.Component{
 	
@@ -17,8 +19,12 @@ class Mortage extends React.Component{
 				<CreditParamsForm>
 					<PriceCreditParams />
 				</CreditParamsForm>
+
+				<Route exact path="/mortage" component={AnnuitetLoanList}/>
+				<Route exact path="/mortage/payments" component={PaymentsTimetable}/>
+
 				{this.props.children}
-				{/*<AnnuitetLoanList />*/}
+				
 			</div>	
 		)
 	}
