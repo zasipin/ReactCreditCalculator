@@ -52,3 +52,10 @@ export function setActiveCreditMonths(months) {
         // percents
     }
 }
+
+export function addMonthsButtonPushed()
+{
+    return {
+        type: 'ADD_MONTHS_BUTTON_PUSHED'
+    }
+}

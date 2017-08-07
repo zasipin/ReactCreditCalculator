@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
     // searchTextReducer, showCompletedReducer, todosReducer, 
     authReducer, creditPropsReducer, annuitetPaymentsReducer,
-    activeCreditReducer } from 'reducers';
+    activeCreditReducer, commonAppStateReducer } from 'reducers';
 
 export var configure = (initialState = {}) => {
     var reducer = redux.combineReducers({
@@ -14,7 +14,8 @@ export var configure = (initialState = {}) => {
         auth: authReducer,
         creditProps: creditPropsReducer,
         annuitetPayments: annuitetPaymentsReducer,
-        activeCredit: activeCreditReducer
+        activeCredit: activeCreditReducer,
+        commonAppState: commonAppStateReducer
     });
     
     initialState.creditProps = {
@@ -24,6 +25,10 @@ export var configure = (initialState = {}) => {
         step: 10000,
         price: 100000,
         downPayment: 0
+    }
+
+    initialState.commonAppState = {
+        isAddingMonths: false
     }
 
     var store = redux.createStore(reducer, initialState, redux.compose(

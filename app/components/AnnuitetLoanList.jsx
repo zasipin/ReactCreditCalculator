@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import AnnuitetCreditComponent from 'AnnuitetCreditComponent';
-
+import AddMonthsButton from 'AddMonthsButton';
 
 export class AnnuitetLoanList extends React.Component{
 	
@@ -20,6 +20,7 @@ export class AnnuitetLoanList extends React.Component{
 		return (
 		<div className="row">
 			<div className="small-10 small-offset-1 medium-8 medium-offset-2">
+				<AddMonthsButton/>
 				<table className="unstriped loan-table">
 					<thead>
 							<tr>

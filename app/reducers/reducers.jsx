@@ -75,3 +75,15 @@ export function activeCreditReducer(state = {}, action){
             return state;    
     }
 }
+
+export function commonAppStateReducer(state = {}, action) {
+    switch(action.type){
+        case 'ADD_MONTHS_BUTTON_PUSHED':
+            return {
+                ...state,
+                isAddingMonths: !state.isAddingMonths
+            }
+        default:
+            return state;    
+    }
+}

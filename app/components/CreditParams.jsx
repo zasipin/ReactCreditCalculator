@@ -15,7 +15,7 @@ class CreditParams extends React.Component{
                     </div>
 
                     <div className="small-5 columns">                            
-                            <input type="number" id="creditSum" ref="creditSum" value={sum} step={step} min={min}
+                            <input type="number" id="creditSum" name="creditSum" ref="creditSum" value={sum} step={step} min={min}
                             onChange={() => {
                                 var sum = this.refs.creditSum.value;
                                 dispatch(actions.setCreditSum(sum));
@@ -28,7 +28,7 @@ class CreditParams extends React.Component{
                          <label for="percents" className="text-right middle">Проценты годовые</label>
                     </div>
                     <div className="small-5 columns">
-                            <input type="number" id="percents" ref="percents" value={percents} min={min}
+                            <input type="number" id="percents" name="percents" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;
                                 dispatch(actions.setPercents(percents));
