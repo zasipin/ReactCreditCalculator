@@ -40,9 +40,15 @@ export class AnnuitetCreditComponent extends React.Component{
 			linkTo = `${currentRouteName}/${paymentsRoute}`;			
 		}
 
+		const renderYearNumber = (months) => {
+			if(months % 12 == 0)
+				return months / 12;
+			return parseFloat(months / 12).toFixed(2);			
+		}
+
 		return (
 		<tr>
-			<td className="small-text"><div>{months / 12} {renderYear(months/12)}</div><div>{months} мес.</div></td>
+			<td className="small-text"><div>{renderYearNumber(months)} {renderYear(months/12)}</div><div>{months} мес.</div></td>
 			<td><Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> р.</td> 
 			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 
             <td><span className="dark-text">{parseInt(overpay)}</span> р.</td>

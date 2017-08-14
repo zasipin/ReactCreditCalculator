@@ -53,7 +53,13 @@ export function annuitetPaymentsReducer(state = [], action){
                 return item.recalculate(action.price - action.downPayment, item.state.percents);
             });       
         case 'ADD_MONTHS':
-            return [...state, new AnnuitetCredit(action.sum, action.percents, action.months)];    
+            
+            if(action.months < 1 || state.find((val) => { return parseInt(val.getData().months) == parseInt(action.months) }))
+                return state;
+            var retArr = [...state, new AnnuitetCredit(action.sum, action.percents, action.months)].sort((a, b) => 
+                     { return parseInt(a.getData().months) - parseInt(b.getData().months) }
+                );
+            return retArr;    
         default:
             return state;
     }    
