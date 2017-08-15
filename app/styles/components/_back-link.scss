@@ -1,3 +1,8 @@
 .button.back-link {
     background-color: $light-green;
 }
+
+.button.back-link:focus, .button.back-link:hover
+{
+  background-color: $light-green-darkend;
+}
