@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   // entry: {
@@ -85,3 +85,13 @@ module.exports = {
   },
   devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
+
+if(NODE_ENV == 'production'){
+  module.exports.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      warnings: false,
+      drop_console: true,
+      unsafe: true
+    })
+  );
+}
