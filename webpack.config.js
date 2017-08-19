@@ -29,18 +29,18 @@ module.exports = {
       '$': 'jquery',
       'jQuery': 'jquery'      
      })
-  //   ,
+    // ,
 
-  //   new webpack.optimize.CommonsChunkPlugin({
-  //     name: "vendor",
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: "common",
 
-  //     filename: "vendor.js",
-  //     // (Give the chunk a different name)
+    //   filename: "./public/common.js"
+    // //   // (Give the chunk a different name)
 
-  //     minChunks: Infinity,
-  //     // (with more entries, this ensures that no other module
-  //     //  goes into the vendor chunk)
-  //   })
+    // //   minChunks: Infinity,
+    // //   // (with more entries, this ensures that no other module
+    // //   //  goes into the vendor chunk)
+    // })
   ],
   output: {
     path: __dirname,
@@ -74,7 +74,7 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0']
         },
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules|bower_components)/        
       }
     ]
   },
