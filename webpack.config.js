@@ -3,6 +3,8 @@ var path = require('path');
 
 var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   // entry: {
   //   vendor: ['script!jquery/dist/jquery.min.js',
@@ -41,6 +43,9 @@ module.exports = {
     // //   // (with more entries, this ensures that no other module
     // //   //  goes into the vendor chunk)
     // })
+  
+    new ExtractTextPlugin("public/styles.css")
+	
   ],
   output: {
     path: __dirname,
@@ -75,6 +80,10 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/        
+      },
+      { 
+        test: /\.css$/, 
+        loader: ExtractTextPlugin.extract("style", "css") 
       }
     ]
   },
