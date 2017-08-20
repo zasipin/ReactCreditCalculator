@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
+// import jquery from 'jquery';
+// import foundation from 'foundation-sites';
+
+
 import router from 'app/router';
 import {configure} from 'configureStore';
 import * as actions from 'actions';
@@ -13,7 +17,7 @@ for(var years = 1; years <= state.creditProps.years; years++ )
 
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css')
-$(document).foundation();
+// $(document).foundation();
 
 // var elem = new Foundation.ResponsiveMenu($('#1top-animated-menu'));
 

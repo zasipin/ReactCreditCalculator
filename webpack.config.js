@@ -11,8 +11,8 @@ module.exports = {
   //   app: './app/app.jsx'
   // },
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/foundation.min.js',
+    //  'script!jquery/dist/jquery.min.js',
+    //  'script!foundation-sites/dist/foundation.min.js',
     
     // 'script!foundation-sites/js/foundation.core.js',
     // 'script!foundation-sites/js/foundation.util.triggers.js',
@@ -22,13 +22,13 @@ module.exports = {
     './app/app.jsx'
   ],
   externals: {
-    jquery: 'jQuery'
+    // jquery: 'jQuery'
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery'      
-     })
+    // new webpack.ProvidePlugin({
+    //  '$': 'jquery',
+    //  'jQuery': 'jquery'      
+    // })
     // ,
 
     // new webpack.optimize.CommonsChunkPlugin({
@@ -83,6 +83,7 @@ module.exports = {
       path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
+  noParse: /(jquery)/, 
   devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
 
