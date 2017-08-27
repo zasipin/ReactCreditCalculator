@@ -20,7 +20,7 @@ class AddMonthsButton extends React.Component {
     const inputFieldRender = () => {
       if(isAddingMonths){
         return (
-          <form>
+          <form className='add-button-form'>
             <div className="row">
               <div className="small-6 columns">
                 <label className="text-right middle" for="monthsToAdd">
