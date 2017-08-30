@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(compression());
 
 app.use((req, res, next) => {
-  const appUrls = ['/consumer', '/mortage', '/car']
+  const appUrls = ['/consumer', '/mortage', '/car'];
   if(appUrls.findIndex((val) => { return req.url === val; }) >= 0)
     res.redirect('http://' + req.hostname + ':' + PORT == '3000' ? PORT : '' + '/');
   else
