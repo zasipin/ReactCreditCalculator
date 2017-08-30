@@ -1,8 +1,12 @@
 var express = require('express');
+var compression = require('compression');
 
 // Create our app
 var app = express();
 const PORT = process.env.PORT || 3000;
+
+// compress all responses
+app.use(compression());
 
 app.use((req, res, next) => {
   const appUrls = ['/consumer', '/mortage', '/car']
