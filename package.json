@@ -2,7 +2,7 @@
   "name": "boilerplate",
   "version": "1.0.0",
   "description": "Credit calculator",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "SET NODE_ENV=test&& karma start",
     "build": "SET NODE_ENV=production && webpack",
