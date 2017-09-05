@@ -13,9 +13,11 @@ class Mortage extends React.Component{
 		// console.log(this.props);
 		return (
 			<div>
-				<BigTextLabel>
-					Примите решение с помощью простого<br/> ипотечного калькулятора
-				</BigTextLabel>	
+				<div className="show-for-medium">
+					<BigTextLabel>
+						Примите решение с помощью простого<br/> ипотечного калькулятора
+					</BigTextLabel>	
+				</div>
 				<CreditParamsForm>
 					<PriceCreditParams />
 				</CreditParamsForm>
