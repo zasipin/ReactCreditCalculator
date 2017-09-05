@@ -22,15 +22,15 @@ class AddMonthsButton extends React.Component {
         return (
           <form className='add-button-form'>
             <div className="row">
-              <div className="small-6 columns">
+              <div className="small-6 meduim-6 columns">
                 <label className="text-right middle" for="monthsToAdd">
                   Добавить период (в месяцах)
                 </label>
               </div>
-              <div className="small-3 columns">
+              <div className="small-4 meduim-3 columns">
                 <input type="number" name="monthsToAdd" aria-describedby="nameHelpText" ref="monthsToAdd" min={1}/>
               </div>
-              <div className="small-3 columns">
+              <div className="small-2 medium-2 columns">
                 <input type="button" value="OK" className="button small" onClick={(e) => {onAddMonths(e);}}/>
               </div>
             </div>  
@@ -54,10 +54,10 @@ class AddMonthsButton extends React.Component {
 
     return (
       <div className="add-months-button-wrapper row">
-        <div className="small-2 columns">
+        <div className="small-2 medium-2 columns">
           <input type="button" className="button small " value={renderButtonValue()} onClick={(e) => {buttonPushed(e);}}/>
         </div>  
-        <div className="small-7 end columns">  
+        <div className="small-10 medium-7 end columns">  
           {inputFieldRender()}  
         </div>  
       </div>
