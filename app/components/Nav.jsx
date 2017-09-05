@@ -10,11 +10,11 @@ class Nav extends React.Component{
 					<div className="title-bar-title">Menu</div>
 				</div>*/}
 				
-				<div className="small-centered large-10 small-12 columns menu-centered">
+				<div className="small-centered large-10 small-12 columns menu-centered ">
     		{/*<div className="small-centered large-10 small-12 columns menu-centered top-bar" id="1top-animated-menu" data-animate="hinge-in-from-top spin-out">*/}
 				
   				{/*<div className="top-bar-center">*/}
-						<ul className="menu">
+						<ul className="menu vertical medium-horizontal">
 							<li><NavLink to="/consumer" activeClassName="active">ПОТРЕБИТЕЛЬСКИЙ</NavLink></li>
 							<li><NavLink to="/mortage" activeClassName="active">ИПОТЕКА</NavLink></li>
 							<li><NavLink to="/car" activeClassName="active">АВТОКРЕДИТ</NavLink></li>
