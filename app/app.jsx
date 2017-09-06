@@ -15,8 +15,11 @@ var state = store.getState();
 for(var years = 1; years <= state.creditProps.years; years++ )
   store.dispatch(actions.addMonthsItem(state.creditProps.sum, state.creditProps.percents, 12 * years));
 
+// Load foundation fonts
+require('style-loader!css-loader!sass-loader!foundation-icons/foundation-icons.scss');
+
 // Load foundation
-require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
+require('style-loader!css-loader!foundation-sites/dist/foundation.min.css');
 // $(document).foundation();
 
 // var elem = new Foundation.ResponsiveMenu($('#1top-animated-menu'));

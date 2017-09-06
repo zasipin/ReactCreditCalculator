@@ -9,11 +9,24 @@ import {AnnuitetCredit} from 'AnnuitetCredit';
 
 export class AnnuitetCreditComponent extends React.Component{
 
+	constructor(props){
+		super(props);
+		this.months  = props.months;
+		this.dispatch = props.dispatch;
+	}
+
 	onPaymentsClick(e, months) {
 		var {dispatch} = this.props;
 		// e.preventDefault();
 		dispatch(actions.setActiveCreditMonths(months));
 		// console.log("On link clicked months", months);
+	}
+
+	onRemoveClick = (e) => {
+		e.preventDefault();
+		this.dispatch(actions.removeMonthsItem(this.months));
+		// console.log("Remove clicked, months", this.months);
+		
 	}
 
 	render() {
@@ -48,6 +61,14 @@ export class AnnuitetCreditComponent extends React.Component{
 
 		return (
 		<tr>
+			<td className="small-text">
+				<button className="button small" type="button" onClick={this.onRemoveClick}>
+					{/* <!-- Screen readers will see "close" --> */}
+					<span className="show-for-sr">Удалить</span>
+					{/* <!-- Visual users will see the X, but not the "Close" text --> */}
+					<span aria-hidden="true"><i className="fi-minus-circle"> </i></span>
+				</button>
+			</td>
 			<td className="small-text"><div>{renderYearNumber(months)} {renderYear(months/12)}</div><div>{months} мес.</div></td>
 			<td><Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> р.</td> 
 			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 

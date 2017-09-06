@@ -85,14 +85,25 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/        
       },
-      {
-        loader: 'sass-loader',
-        test: /\.scss?$/,
-        include: [
-          path.resolve(__dirname, './node_modules/foundation-sites/scss')
-        ]
-      }
-    ]
+      // {
+      //   test: /\.(eot|svg|ttf|woff|woff2)$/,
+      //   loader: 'file-loader?name=public/fonts/[name].[ext]'
+      // },
+
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=40000&mimetype=application/font-woff&name=public/fonts/[name].[ext]",
+         },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader?name=public/fonts/[name].[ext]" }
+
+
+      // {
+      //   loader: 'sass-loader',
+      //   test: /\.scss?$/,
+      //   include: [
+      //     path.resolve(__dirname, './node_modules/foundation-sites/scss')
+      //   ]
+      // }
+    ],
+    noParse: /(jquery)/, 
   },
   //noParse: /(jquery)/, 
   devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
@@ -112,7 +123,9 @@ if(NODE_ENV == 'production'){
   );
   module.exports.plugins.push(
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')      
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
     })
   )
 }

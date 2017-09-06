@@ -43,6 +43,14 @@ export function addMonthsItem(sum, percents, months) {
     }
 }
 
+export function removeMonthsItem(months) {
+    // months = months > 0 ? months : 12;
+    return {
+        type: 'REMOVE_MONTHS',
+        months
+    }
+}
+
 export function setActiveCreditMonths(months) {
     return {
         type: 'SET_ACTIVE_CREDIT_MONTHS',

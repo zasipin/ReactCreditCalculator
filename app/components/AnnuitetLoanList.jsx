@@ -13,7 +13,7 @@ export class AnnuitetLoanList extends React.Component{
 
 		var renderAnnuitetLoanList = () => {
 			return annuitetPayments.map((item, index) => {
-				return <AnnuitetCreditComponent key={index} {...item.getData()} currentRouteName={currentRouteName}/>
+				return <AnnuitetCreditComponent key={item.getData().months} {...item.getData()} currentRouteName={currentRouteName}/>
 			});
 		}
 
@@ -24,11 +24,12 @@ export class AnnuitetLoanList extends React.Component{
 				<table className="unstriped loan-table">
 					<thead>
 							<tr>
-								<th width="150" className="small-text">Кол-во лет (мес)</th>
-								<th className="small-text">Ежемес. платеж</th>
+								<th width="50" className="small-text">Удалить</th>
+								<th width="100" className="small-text">Кол-во лет (мес)</th>
+								<th width="150" className="small-text">Ежемес. платеж</th>
 								<th width="150" className="small-text">Общая сумма платежей</th>
-								<th width="150" className="small-text">Переплата</th>
-								<th width="150" className="small-text">Переплата %</th>
+								<th width="100" className="small-text">Переплата</th>
+								<th width="100" className="small-text">Переплата %</th>
 							</tr>
 						</thead>
 						<tbody>
