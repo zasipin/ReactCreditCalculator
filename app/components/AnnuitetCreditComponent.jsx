@@ -66,7 +66,7 @@ export class AnnuitetCreditComponent extends React.Component{
 					{/* <!-- Screen readers will see "close" --> */}
 					<span className="show-for-sr">Удалить</span>
 					{/* <!-- Visual users will see the X, but not the "Close" text --> */}
-					<span aria-hidden="true"><i className="fi-minus-circle"> </i></span>
+					<span aria-hidden="true"><i className="fi-minus"> </i></span>
 				</button>
 			</td>
 			<td className="small-text"><div>{renderYearNumber(months)} {renderYear(months/12)}</div><div>{months} мес.</div></td>
