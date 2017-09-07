@@ -12,6 +12,11 @@ table.loan-table {
       border-color: $light-green;
       border-bottom-width: 4px ;
       
+      th {
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+
     }
 
     tbody {

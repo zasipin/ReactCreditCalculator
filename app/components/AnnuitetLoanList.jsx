@@ -24,7 +24,7 @@ export class AnnuitetLoanList extends React.Component{
 				<table className="unstriped loan-table">
 					<thead>
 							<tr>
-								<th className="small-text" style={{width:"50px"}}>Удалить</th>
+								<th className="small-text" style={{width:"32px"}}>Удалить</th>
 								<th className="small-text" style={{width:"15%"}}>Кол-во лет (мес)</th>
 								<th className="small-text" style={{width:"23%"}}>Ежемес. платеж</th>
 								<th className="small-text" style={{width:"23%"}}>Общая сумма платежей</th>
