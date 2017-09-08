@@ -9,11 +9,11 @@ export class PaymentsTimetableItem extends React.Component{
         return (
             // <div>
                 <tr>
-                    <td width="150">{parseInt(months - paymentState.months + 1)}</td>
-                    <td >{parseInt(paymentState.monthlyPay)} р.</td>
-                    <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> р.</td>
-                    <td width="150"><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> р.</td>
-                    <td width="150"><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> р.</td>
+                    <td>{parseInt(months - paymentState.months + 1)}</td>
+                    <td>{parseInt(paymentState.monthlyPay)} р.</td>
+                    <td><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> р.</td>
+                    <td><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> р.</td>
+                    <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> р.</td>
                 </tr>
             // </div>
         )

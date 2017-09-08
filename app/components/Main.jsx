@@ -14,7 +14,7 @@ var Main = (props) => {
       <div >
         <Nav />
         <MiddleBar />
-        <div className="row">
+        <div className="row small-12 columns">
           {props.children}
 
           <Route path="/consumer" component={ConsumerLoan} /> 

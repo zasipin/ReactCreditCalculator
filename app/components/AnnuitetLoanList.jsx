@@ -18,8 +18,8 @@ export class AnnuitetLoanList extends React.Component{
 		}
 
 		return (
-		<div className="row">
-			<div className="small-10 small-offset-1 medium-8 medium-offset-2">
+		<div className="row loan-list-wrapper">
+			<div className="small-12 medium-8 medium-offset-2">
 				<AddMonthsButton/>
 				<table className="unstriped loan-table">
 					<thead>

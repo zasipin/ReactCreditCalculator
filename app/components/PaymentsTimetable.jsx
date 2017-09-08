@@ -18,7 +18,7 @@ var PaymentsTimetable = (props) => {
 
     return (
         <div className="row">
-            <div className="small-10 small-offset-1 medium-8 medium-offset-2">
+            <div className="small-12 medium-8 medium-offset-2 columns">
                 {/*<Link to="/" className="float-left" onClick={(e) => {goBack(e);}} >Назад</Link>*/}
                 <BackLink linkHistory={history}/>
                 <div className="text-center">График платежей{renderMonths()}</div></div>

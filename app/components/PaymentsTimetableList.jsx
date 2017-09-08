@@ -35,25 +35,25 @@ export class PaymentsTimetableList extends React.Component{
 		
 
 		return (
-		// <div className="row">
-			<div className="small-10 small-offset-1 medium-8 medium-offset-2">
-				<table className="unstriped loan-table">
-					<thead>
-						<tr>
-							<th width="150" className="small-text">Месяц</th>
-							<th className="small-text">Ежемес. платеж</th>
-							<th width="150" className="small-text">Платеж за кредит</th>
-							<th width="150" className="small-text">Платеж за %</th>
-							<th width="150" className="small-text">Остаток долга</th>
-						</tr>
-					</thead>
-					<tbody>
-						{renderTimetableItems()}
-					</tbody>
-				</table>	
-				
-			</div>
-		// </div>
+		  <div className="row">
+				<div className="small-12 medium-8 medium-offset-2 columns">
+					<table className="unstriped loan-table">
+						<thead>
+							<tr>
+								<th className="small-text" style={{width:"10%"}}>Месяц</th>
+								<th className="small-text" style={{width:"23%"}}>Ежемес. платеж</th>
+								<th className="small-text" style={{width:"23%"}}>Платеж за кредит</th>
+								<th className="small-text" style={{width:"20%"}}>Платеж за %</th>
+								<th className="small-text" style={{width:"23%"}}>Остаток долга</th>
+							</tr>
+						</thead>
+						<tbody>
+							{renderTimetableItems()}
+						</tbody>
+					</table>	
+					
+				</div>
+		  </div>
 		)
 	}
 };
