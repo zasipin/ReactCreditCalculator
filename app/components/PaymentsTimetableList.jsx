@@ -35,7 +35,7 @@ export class PaymentsTimetableList extends React.Component{
 		
 
 		return (
-		  <div className="row">
+		  <div className="row"> 
 				<div className="small-12 medium-8 medium-offset-2 columns">
 					<table className="unstriped loan-table">
 						<thead>
