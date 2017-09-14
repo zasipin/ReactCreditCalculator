@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var NODE_ENV = process.env.NODE_ENV = 'production';//process.env.NODE_ENV || 'development';
 
@@ -30,6 +31,7 @@ module.exports = {
     // jquery: 'jQuery'
   },
   plugins: [
+    new ExtractTextPlugin("styles.css"),
     // new webpack.ProvidePlugin({
     //  '$': 'jquery',
     //  'jQuery': 'jquery'      
@@ -78,7 +80,35 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
+    // rules: [
+
+    // ],
     loaders: [
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use:  [
+                  {
+                        loader :"css-loader",
+                        options: { minimize: true }
+                  },
+                  {
+                    loader :"sass-loader"
+                  }
+                ]
+        })
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: {
+                  loader :"css-loader",
+                  options: { minimize: true }
+              }
+        })
+      },
       {
         loader: 'babel-loader',
         query: {
