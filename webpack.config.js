@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var NODE_ENV = process.env.NODE_ENV = 'production';//process.env.NODE_ENV || 'development';
 
 module.exports = {
   context: __dirname, // string (absolute path!)
@@ -48,8 +48,10 @@ module.exports = {
     // })
   ],
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+    //path: __dirname,
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
   resolve: {
     // root: __dirname,
