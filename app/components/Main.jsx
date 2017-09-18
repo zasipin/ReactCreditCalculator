@@ -2,25 +2,36 @@ import React from'react';
 import Nav from 'Nav';
 import MiddleBar from 'MiddleBar';
 import {Route} from 'react-router-dom';
+import Bundle from 'Bundle';
 
-import ConsumerLoan from 'ConsumerLoan'; 
+import loadMortage from 'bundle-loader?lazy!Mortage'
+
+// components load their module for initial visit
+const Mortage = (props) => (
+  <Bundle load={loadMortage}>
+    {(Mortage) => <Mortage {...props}/>}
+  </Bundle>
+)
+
+import ConsumerLoan from 'ConsumerLoan';  
 // import Mortage from 'Mortage'; 
 // import CarLoan from 'CarLoan'; 
+
 
 class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      Mortage: () => {},
+      // Mortage: () => {},
       CarLoan: () => {}
     }
   }
 
   componentWillMount() {
-    import('Mortage').then(component => {
-      this.setState({Mortage: component.default});
-    });
+    // import('Mortage').then(component => {
+    //   this.setState({Mortage: component.default});
+    // });
 
     import('CarLoan').then(component => {
       this.setState({CarLoan: component.default});
@@ -28,7 +39,7 @@ class Main extends React.Component {
   }
 
   render() {
-    let {Mortage, CarLoan} = this.state;
+    let {CarLoan} = this.state;
 
     return (
         <div className=" main">
