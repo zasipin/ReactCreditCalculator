@@ -11,7 +11,7 @@ class PriceCreditParams extends React.Component{
             <div>
                     <div className="row">
                         <div className="small-7 columns">
-                            <label for="price" className="text-right middle">Стоимость</label>
+                            <label htmlFor="price" className="text-right middle">Стоимость</label>
                         </div>
                         <div className="small-5 columns">
                             <input type="number" id="price" ref="price" value={price} step={step} min={min}
@@ -24,7 +24,7 @@ class PriceCreditParams extends React.Component{
                     </div>
                     <div className="row">    
                         <div className="small-7 columns">
-                            <label for="downPayment" className="text-right middle">Первоначальный взнос</label>
+                            <label htmlFor="downPayment" className="text-right middle">Первоначальный взнос</label>
                         </div>
                         <div className="small-5 columns">                            
                             <input type="number" id="downPayment" ref="downPayment" value={downPayment} step={step} min={min}
@@ -37,7 +37,7 @@ class PriceCreditParams extends React.Component{
                     </div>    
                     <div className="row">
                         <div className="small-7 columns">
-                            <label for="percents" className="text-right middle">Проценты годовые</label>
+                            <label htmlFor="percents" className="text-right middle">Проценты годовые</label>
                         </div>        
                         <div className="small-5 columns">                            
                             <input type="number" id="percents" ref="percents" value={percents} min={min}

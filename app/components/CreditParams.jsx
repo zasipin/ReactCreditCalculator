@@ -11,7 +11,7 @@ class CreditParams extends React.Component{
             <div>
                 <div className="row">
                     <div className="small-7 columns">
-                         <label for="creditSum" className="text-right middle">Сумма кредита</label>
+                         <label htmlFor="creditSum" className="text-right middle">Сумма кредита</label>
                     </div>
 
                     <div className="small-5 columns">                            
@@ -25,7 +25,7 @@ class CreditParams extends React.Component{
 
                 <div className="row">
                     <div className="small-7 columns">
-                         <label for="percents" className="text-right middle">Проценты годовые</label>
+                         <label htmlFor="percents" className="text-right middle">Проценты годовые</label>
                     </div>
                     <div className="small-5 columns">
                             <input type="number" id="percents" name="percents" ref="percents" value={percents} min={min}
