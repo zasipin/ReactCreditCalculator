@@ -10,28 +10,25 @@ module.exports = {
   // the entry and module.rules.loader option
   //   is resolved relative to this directory
 
-  // entry: {
-  //   vendor: ['script!jquery/dist/jquery.min.js',
-  //            'script!foundation-sites/dist/foundation.min.js',
-  //            'script!react/dist/react.min.js'],
-  //   app: './app/app.jsx'
-  // },
-  entry: [
-    //  'script!jquery/dist/jquery.min.js',
-    //  'script!foundation-sites/dist/foundation.min.js',
-    
-    // 'script!foundation-sites/js/foundation.core.js',
-    // 'script!foundation-sites/js/foundation.util.triggers.js',
-    // 'script!foundation-sites/js/foundation.util.mediaQuery.js',
-    // 'script!foundation-sites/js/foundation.responsiveMenu.js',
-
-    './app/app.jsx'
-  ],
+  entry: {
+    vendor: ['react', 'react-redux', 'react-dom', 'react-router-dom'],
+    app: './app/app.jsx'
+  },
+  // entry: [
+  //   './app/app.jsx'
+  // ],
   externals: {
     // jquery: 'jQuery'
   },
   plugins: [
     new ExtractTextPlugin("styles.css"),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      path: path.resolve(__dirname, 'public'),
+      filename: "vendor.js"
+    }),
+
     // new webpack.ProvidePlugin({
     //  '$': 'jquery',
     //  'jQuery': 'jquery'      
@@ -40,8 +37,8 @@ module.exports = {
 
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "common",
-
-    //   filename: "./public/common.js"
+    //   path: path.resolve(__dirname, 'public'),
+    //   filename: "common.js"
     // //   // (Give the chunk a different name)
 
     // //   minChunks: Infinity,
