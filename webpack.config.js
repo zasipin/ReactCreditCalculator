@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var NODE_ENV = process.env.NODE_ENV = 'production';//process.env.NODE_ENV || 'development';
+var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   context: __dirname, // string (absolute path!)

@@ -4,10 +4,10 @@
   "description": "Credit calculator",
   "main": "server.js",
   "scripts": {
-    "test": "SET NODE_ENV=test&& karma start",
-    "build": "SET NODE_ENV=production && webpack",
+    "test": "SET NODE_ENV=test&&karma start",
+    "build": "SET NODE_ENV=development&&webpack",
     "start": "node server.js",
-    "build_production": "SET NODE_ENV=production&& webpack"
+    "build_production": "set NODE_ENV=production&&webpack"
   },
   "author": "Nikolai Zasypin",
   "license": "MIT",
