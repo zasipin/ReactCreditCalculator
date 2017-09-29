@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -21,6 +22,8 @@ module.exports = {
     // jquery: 'jQuery'
   },
   plugins: [
+    new CleanWebpackPlugin(['public']),
+
     new ExtractTextPlugin("styles.css"),
 
     new webpack.optimize.CommonsChunkPlugin({
