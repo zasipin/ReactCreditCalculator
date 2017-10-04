@@ -22,7 +22,10 @@ module.exports = {
     // jquery: 'jQuery'
   },
   plugins: [
-    new CleanWebpackPlugin(['public']),
+    new CleanWebpackPlugin(['public'], {
+        exclude:  ['index.html']
+      }
+    ),
 
     new ExtractTextPlugin("styles.css"),
 
@@ -142,6 +145,14 @@ module.exports = {
 };
 
 if(NODE_ENV == 'production'){
+
+  module.exports.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(NODE_ENV)
+      }
+    })
+  )
   module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       // warnings: false,
@@ -153,11 +164,4 @@ if(NODE_ENV == 'production'){
       }
     })
   );
-  module.exports.plugins.push(
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    })
-  )
 }
