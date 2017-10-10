@@ -7,16 +7,13 @@ import Bundle from 'Bundle';
 import loadMortage from 'bundle-loader?lazy!Mortage'
 
 // components load their module for initial visit
-const Mortage = (props) => (
-  <Bundle load={loadMortage}>
-    {(Mortage) => <Mortage {...props}/>}
-  </Bundle>
-)
+// const Mortage = (props) => (
+//   <Bundle load={loadMortage}>
+//     {(Mortage) => <Mortage {...props}/>}
+//   </Bundle>
+// )
 
 import ConsumerLoan from 'ConsumerLoan';  
-// import Mortage from 'Mortage'; 
-// import CarLoan from 'CarLoan'; 
-
 
 class Main extends React.Component {
 
@@ -29,9 +26,9 @@ class Main extends React.Component {
   }
 
   componentWillMount() {
-    // import('Mortage').then(component => {
-    //   this.setState({Mortage: component.default});
-    // });
+    import('Mortage').then(component => {
+      this.setState({Mortage: component.default});
+    });
 
     import('CarLoan').then(component => {
       this.setState({CarLoan: component.default});
@@ -39,7 +36,7 @@ class Main extends React.Component {
   }
 
   render() {
-    let {CarLoan} = this.state;
+    let {CarLoan, Mortage} = this.state;
 
     return (
         <div className=" main">
