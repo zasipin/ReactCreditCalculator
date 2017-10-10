@@ -7,11 +7,11 @@ import Bundle from 'Bundle';
 import loadMortage from 'bundle-loader?lazy!Mortage'
 
 // components load their module for initial visit
-const Mortage = (props) => (
-  <Bundle load={loadMortage}>
-    {(Mortage) => <Mortage {...props}/>}
-  </Bundle>
-)
+// const Mortage = (props) => (
+//   <Bundle load={loadMortage}>
+//     {(Mortage) => <Mortage {...props}/>}
+//   </Bundle>
+// )
 
 import ConsumerLoan from 'ConsumerLoan';  
 // import Mortage from 'Mortage'; 
@@ -23,15 +23,15 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Mortage: () => {},
+      Mortage: () => {},
       CarLoan: () => {}
     }
   }
 
   componentWillMount() {
-    // import('Mortage').then(component => {
-    //   this.setState({Mortage: component.default});
-    // });
+    import('Mortage').then(component => {
+      this.setState({Mortage: component.default});
+    });
 
     import('CarLoan').then(component => {
       this.setState({CarLoan: component.default});
@@ -39,7 +39,7 @@ class Main extends React.Component {
   }
 
   render() {
-    let {CarLoan} = this.state;
+    let {CarLoan, Mortage} = this.state;
 
     return (
         <div className=" main">
@@ -50,7 +50,6 @@ class Main extends React.Component {
               {this.props.children}
 
               <Route path="/consumer" component={ConsumerLoan} /> 
-              {/* {CarLoan} */}
               <Route path="/car" component={CarLoan}/>
               <Route path="/mortage" component={Mortage}/>
             </div>
