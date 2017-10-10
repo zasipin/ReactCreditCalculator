@@ -3,10 +3,9 @@ color: $light-green;
   
 }
 
-a:hover {
+a:focus, a:hover {
     color: $light-green-darkend;
   }
-
 
 .menu {
   margin-top: 1em;
