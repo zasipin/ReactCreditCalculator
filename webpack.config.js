@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
 var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -23,18 +25,25 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['public'], {
-        exclude:  ['index.html']
+        // exclude:  ['index.html']
       }
     ),
 
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin("[hash].styles.css"),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       path: path.resolve(__dirname, 'public'),
-      filename: "vendor.js"
+      filename: "[hash].vendor.js"
     }),
-
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'app') + '/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    }),    
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer'
+    }),
     // new webpack.ProvidePlugin({
     //  '$': 'jquery',
     //  'jQuery': 'jquery'      
@@ -55,7 +64,7 @@ module.exports = {
   output: {
     //path: __dirname,
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: '[hash].bundle.js',
     chunkFilename: '[name].bundle.js'
   },
   resolve: {
