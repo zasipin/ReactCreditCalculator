@@ -10,6 +10,9 @@ import router from 'app/router';
 import {configure} from 'configureStore';
 import * as actions from 'actions';
 
+import installServiceWorker from 'app/sw/install.js';
+installServiceWorker();
+
 var store = configure();
 var state = store.getState(); 
 for(var years = 1; years <= state.creditProps.years; years++ )
