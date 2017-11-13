@@ -1,4 +1,4 @@
-var staticCacheName = 'crcalc-static-v4.1';
+var staticCacheName = 'crcalc-static-v4.4';
 var contentImgsCache = 'crcalc-content-imgs';
 var allCaches = [
   staticCacheName,
@@ -32,7 +32,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
-        console.log('cacheNames : ', cacheNames);
+        //console.log('cacheNames : ', cacheNames);
       return Promise.all(
         cacheNames.filter(function(cacheName) {
             //console.log('cacheName', cacheName);
@@ -53,7 +53,7 @@ self.addEventListener('fetch', function(event) {
     caches.open(staticCacheName).then(cache=>{
       return cache.match(event.request).then(function(response) {
         return response || fetch(event.request).then(fetchResponse=>{
-            if(fetchResponse) cache.put(event.request, fetchResponse.clone());
+            //if(fetchResponse) cache.put(event.request, fetchResponse.clone());
             
             return fetchResponse;
             });
