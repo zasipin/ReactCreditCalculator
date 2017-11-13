@@ -4,6 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -44,6 +45,7 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
+    new ManifestPlugin()
     // new webpack.ProvidePlugin({
     //  '$': 'jquery',
     //  'jQuery': 'jquery'      
