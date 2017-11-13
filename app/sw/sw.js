@@ -1,4 +1,4 @@
-var staticCacheName = 'crcalc-static-v4.4';
+var staticCacheName = 'crcalc-static-v4.7.7';
 var contentImgsCache = 'crcalc-content-imgs';
 var allCaches = [
   staticCacheName,
@@ -6,13 +6,17 @@ var allCaches = [
 ];
 
 self.addEventListener('install', function(event) {
+  const keys = Array.from(caches.keys());
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
+      if(keys.includes(staticCacheName)) return;
+
       return fetch("assets-manifest.json")
           .then(response => response.json())
           .then(assets =>
             cache.addAll([
               "/",
+              "/consumer",
               assets["vendor.js"],
               assets["app.js"],
               assets["app.css"],
@@ -48,7 +52,12 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
-  
+  const curUrl = new URL(requestUrl);
+  if(curUrl.pathname === '/consumer'){
+    event.respondWith(caches.match('/'));
+    return;
+  }
+
   event.respondWith(
     caches.open(staticCacheName).then(cache=>{
       return cache.match(event.request).then(function(response) {
