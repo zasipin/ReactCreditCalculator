@@ -45,7 +45,9 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
-    new ManifestPlugin()
+    new ManifestPlugin({
+      fileName: 'assets-manifest.json'
+    })
     // new webpack.ProvidePlugin({
     //  '$': 'jquery',
     //  'jQuery': 'jquery'      

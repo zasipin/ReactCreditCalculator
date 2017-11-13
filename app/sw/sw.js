@@ -8,16 +8,23 @@ var allCaches = [
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
-      return cache.addAll([
-        '/',
-        // /\/*bundle.js$/,
-        // '/*styles.css',
-        //'https://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff',
-        //'https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff'
-      ]);
+      return fetch("assets-manifest.json")
+          .then(response => response.json())
+          .then(assets =>
+            cache.addAll([
+              "/",
+              assets["vendor.js"],
+              assets["app.js"],
+              assets["app.css"],
+              assets["0.bundle.js"],
+              assets["1.bundle.js"],
+              assets["2.bundle.js"],
+              assets["public\\fonts\\foundation-icons.ttf"],
+            ])
+          ).catch(err=>{})
     })
     .then(()=> {
-        console.log('skipping wait');
+        //console.log('skipping wait');
         self.skipWaiting()})
   );
 });
@@ -28,7 +35,7 @@ self.addEventListener('activate', function(event) {
         console.log('cacheNames : ', cacheNames);
       return Promise.all(
         cacheNames.filter(function(cacheName) {
-            console.log('cacheName', cacheName);
+            //console.log('cacheName', cacheName);
           return cacheName.startsWith('crcalc-') &&
                  !allCaches.includes(cacheName);
         }).map(function(cacheName) {

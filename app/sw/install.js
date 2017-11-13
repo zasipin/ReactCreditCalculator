@@ -5,7 +5,7 @@ function install(){
     if(!navigator.serviceWorker) return;
     
     navigator.serviceWorker.register(swURL, {scope: '/'}).then(reg => {
-        console.log('sw registered');
+        //console.log('sw registered');
     });
 }
 
