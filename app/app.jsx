@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-
+import { getClientLanguage } from './utils/common_utils';
 // import jquery from 'jquery';
 // import foundation from 'foundation-sites';
 
