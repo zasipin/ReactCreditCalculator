@@ -5,11 +5,13 @@ import { withRouter } from 'react-router-dom';
 import AnnuitetCreditComponent from 'AnnuitetCreditComponent';
 import AddMonthsButton from 'AddMonthsButton';
 
-export class AnnuitetLoanList extends React.Component{
+import { getTranslate } from 'react-localize-redux';
+
+// export class AnnuitetLoanList extends React.Component{
 	
-	render() {
-		var {annuitetPayments} = this.props;
-		var currentRouteName = this.props.location ? this.props.location.pathname : '';
+const AnnuitetLoanList = ({annuitetPayments, translate, ...props}) => {
+
+		var currentRouteName = props.location ? props.location.pathname : '';
 
 		var renderAnnuitetLoanList = () => {
 			return annuitetPayments.map((item, index) => {
@@ -24,12 +26,12 @@ export class AnnuitetLoanList extends React.Component{
 				<table className="unstriped loan-table">
 					<thead>
 							<tr>
-								<th className="small-text" style={{width:"32px"}}>Удалить</th>
-								<th className="small-text" style={{width:"15%"}}>Кол-во лет (мес)</th>
-								<th className="small-text" style={{width:"23%"}}>Ежемес. платеж</th>
-								<th className="small-text" style={{width:"23%"}}>Общая сумма платежей</th>
-								<th className="small-text" style={{width:"15%"}}>Переплата</th>
-								<th className="small-text" style={{width:"15%"}}>Переплата %</th>
+								<th className="small-text" style={{width:"32px"}}>{translate('listHeaderDelete')}</th>
+								<th className="small-text" style={{width:"15%"}}>{translate('listHeaderMonthsAmount')}</th>
+								<th className="small-text" style={{width:"23%"}}>{translate('listHeaderMonthlyPayment')}</th>
+								<th className="small-text" style={{width:"23%"}}>{translate('listHeaderTotalPayments')}</th>
+								<th className="small-text" style={{width:"15%"}}>{translate('listHeaderOverpayment')}</th>
+								<th className="small-text" style={{width:"15%"}}>{translate('listHeaderOverpayment')} %</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,10 +42,10 @@ export class AnnuitetLoanList extends React.Component{
 		</div>
 		)
 	}
-};
 
-export default withRouter(connect((state) => {
-    return { 
-		annuitetPayments: state.annuitetPayments
-	}
-})(AnnuitetLoanList));
+const mapStateToProps = state => ({
+	annuitetPayments: state.annuitetPayments,
+  translate: getTranslate(state.locale),
+});
+
+export default withRouter(connect(mapStateToProps)(AnnuitetLoanList));

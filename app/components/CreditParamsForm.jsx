@@ -17,4 +17,8 @@ class CreditParamsForm extends React.Component{
 	}
 };
 
-export default connect()(CreditParamsForm);
+export default (
+// connect()(
+    CreditParamsForm
+// )
+);

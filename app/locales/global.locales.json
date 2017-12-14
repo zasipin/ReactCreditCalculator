@@ -1,10 +1,50 @@
 {
-  "greeting": [
-    "Hello",      
-    "Привет"
+  "annualPercents": [
+    "Annual Percents",
+    "Проценты годовые"
   ],
-  "farwell": [
-    "Goodbye",    
-    "Au revoir"  
+  "creditSum": [
+    "Loan sum",
+    "Сумма кредита"
+  ],
+  "currency": [
+    "$",
+    "р"
+  ],
+  "listHeaderDelete": [
+    "Remove",
+    "Удалить"
+  ],
+  "listHeaderMonthsAmount": [
+    "Years (months)",
+    "Кол-во лет (мес)"
+  ],
+  "listHeaderMonthlyPayment": [
+    "Monthly payment",
+    "Ежемес. платеж"
+  ],
+  "listHeaderTotalPayments": [
+    "Total amount of payments",
+    "Общая сумма платежей"
+  ],
+  "listHeaderOverpayment": [
+    "Overpayment",
+    "Переплата"
+  ],
+  "loanCalcRod": [
+    "loan calculator",
+    "ипотечного калькулятора"
+  ],
+  "makeDecision": [
+    "Make a decision with simple",    
+    "Примите решение с помощью простого"  
+  ],
+  "monthShort": [
+    "mon",    
+    "мес"  
+  ],
+  "Remove": [
+    "Remove",
+    "Удалить"
   ]
 }

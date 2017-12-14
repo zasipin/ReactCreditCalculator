@@ -21,7 +21,7 @@ for(var years = 1; years <= state.creditProps.years; years++ )
 
 // language selection
 var defaultLanguage = getClientLanguage();
-console.log('default language: ', defaultLanguage);
+// console.log('default language: ', defaultLanguage);
 const languages = ['en', 'ru'];
 if (languages.indexOf(defaultLanguage) < 0) {
   defaultLanguage = languages[0];
@@ -29,7 +29,7 @@ if (languages.indexOf(defaultLanguage) < 0) {
 store.dispatch(initialize(languages, {defaultLanguage}));
 
 import jsonLocales from './locales/global.locales.json';
-console.log('jsonLocales: ', jsonLocales);
+//console.log('jsonLocales: ', jsonLocales);
 store.dispatch(addTranslation(jsonLocales));
 
 // Load foundation fonts

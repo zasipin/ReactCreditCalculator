@@ -7,15 +7,19 @@ import AnnuitetLoanList from 'AnnuitetLoanList';
 import BigTextLabel from 'BigTextLabel';
 import PaymentsTimetable from 'PaymentsTimetable';
 
+import { localize } from 'react-localize-redux';
+
 class Mortage extends React.Component{
 	
 	render() {
-		// console.log(this.props);
+		var { translate } = this.props;
 		return (
 			<div>
 				<div className="show-for-medium">
 					<BigTextLabel>
-						Примите решение с помощью простого<br/> ипотечного калькулятора
+						{ translate('makeDecision') }
+						<br/>
+						{ translate('loanCalcRod') }
 					</BigTextLabel>	
 				</div>
 				<CreditParamsForm>
@@ -32,4 +36,4 @@ class Mortage extends React.Component{
 	}
 };
 
-export default Mortage;
+export default localize(Mortage, 'locale');

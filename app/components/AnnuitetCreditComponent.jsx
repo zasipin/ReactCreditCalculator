@@ -6,6 +6,9 @@ import { withRouter, Link } from 'react-router-dom';
 import * as actions from 'actions';
 
 import {AnnuitetCredit} from 'AnnuitetCredit';
+import ShowYear from 'ShowYear';
+
+import { getTranslate } from 'react-localize-redux';
 
 export class AnnuitetCreditComponent extends React.Component{
 
@@ -30,21 +33,7 @@ export class AnnuitetCreditComponent extends React.Component{
 	}
 
 	render() {
-        var {overpay, monthlyPay, totalPay, overpayPercentage, months, currentRouteName} = this.props;
-		
-        // var credit = new AnnuitetCredit(sum, percents, 12);
-        // var creditData = credit.getData();
-
-		var renderYear = (year) => {
-			year = year > 0 ? year : 0;
-			if(year == 1)
-				return 'год';
-			if(year > 1 && year < 5)
-				return 'года';
-			return 'лет';
-		}
-		// console.log(this);
-		// var currentRouteName = this.props.routes[this.props.routes.length - 1];
+    var {overpay, monthlyPay, totalPay, overpayPercentage, months, currentRouteName, translate} = this.props;
 		var paymentsRoute = 'payments';
 		var linkTo;
 		if(currentRouteName === '/' || !currentRouteName){
@@ -53,34 +42,34 @@ export class AnnuitetCreditComponent extends React.Component{
 			linkTo = `${currentRouteName}/${paymentsRoute}`;			
 		}
 
-		const renderYearNumber = (months) => {
-			if(months % 12 == 0)
-				return months / 12;
-			return parseFloat(months / 12).toFixed(2);			
-		}
-
 		return (
 		<tr>
 			<td className="small-text">
 				<button className="button small" type="button" onClick={this.onRemoveClick}>
 					{/* <!-- Screen readers will see "close" --> */}
-					<span className="show-for-sr">Удалить</span>
+					<span className="show-for-sr">translate('Remove')</span>
 					{/* <!-- Visual users will see the X, but not the "Close" text --> */}
 					<span aria-hidden="true"><i className="fi-minus"> </i></span>
 				</button>
 			</td>
-			<td className="small-text"><div>{renderYearNumber(months)} {renderYear(months/12)}</div><div>{months} мес.</div></td>
+			<td className="small-text">
+				<div>
+					<ShowYear months={months}/>
+				</div>
+					<div>{months} {translate('monthShort')}.
+				</div>
+			</td>
 			<td><Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> р.</td> 
-			<td><span className="dark-text">{parseInt(totalPay)}</span> р.</td> 
-            <td><span className="dark-text">{parseInt(overpay)}</span> р.</td>
+			<td><span className="dark-text">{parseInt(totalPay)}</span> {translate('currency')}.</td> 
+            <td><span className="dark-text">{parseInt(overpay)}</span> {translate('currency')}.</td>
 			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>
 		</tr>
 		)
 	}
 };
 
-export default withRouter(connect(
-	// (state) => {
-    // return state.creditProps;
-// }
-)(AnnuitetCreditComponent));
+const mapStateToProps = state => ({
+  translate: getTranslate(state.locale),
+});
+
+export default withRouter(connect(mapStateToProps)(AnnuitetCreditComponent));

@@ -1,17 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from 'actions';
+import { getTranslate } from 'react-localize-redux';
 
 class CreditParams extends React.Component{
 	render() {
-        var {dispatch, sum, percents, step} = this.props;
+        var {dispatch, sum, percents, step, translate} = this.props;
         var min = 0;
 
 		return (
             <div>
                 <div className="row">
                     <div className="small-7 columns">
-                         <label htmlFor="creditSum" className="text-right middle">Сумма кредита</label>
+                         <label htmlFor="creditSum" className="text-right middle">{translate('creditSum')}</label>
                     </div>
 
                     <div className="small-5 columns">                            
@@ -25,7 +26,7 @@ class CreditParams extends React.Component{
 
                 <div className="row">
                     <div className="small-7 columns">
-                         <label htmlFor="percents" className="text-right middle">Проценты годовые</label>
+                         <label htmlFor="percents" className="text-right middle">{translate('annualPercents')}</label>
                     </div>
                     <div className="small-5 columns">
                             <input type="number" id="percents" name="percents" ref="percents" value={percents} min={min}
@@ -48,10 +49,11 @@ class CreditParams extends React.Component{
 	}
 };
 
-export default connect((state) => {
-    return {
-        sum: state.creditProps.sum,
-        percents: state.creditProps.percents,
-        step: state.creditProps.step
-    }
-})(CreditParams);
+const mapStateToProps = state => ({
+    sum: state.creditProps.sum,
+    percents: state.creditProps.percents,
+    step: state.creditProps.step,
+    translate: getTranslate(state.locale),
+  });
+
+export default connect(mapStateToProps)(CreditParams);

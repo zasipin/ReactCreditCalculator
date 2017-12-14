@@ -33,11 +33,16 @@ export class ConsumerLoan extends React.Component{
 	}
 };
 
-export default withRouter(connect(
+export default withRouter(
+//	connect(
 // 	(state) => {
 //     return { 
 // 		annuitetPayments: state.annuitetPayments
 // 	}
 // }
-)(ConsumerLoan));
+//)
+// (
+ConsumerLoan
+// )
+);
 
