@@ -6,6 +6,8 @@ import {
     authReducer, creditPropsReducer, annuitetPaymentsReducer,
     activeCreditReducer, commonAppStateReducer } from 'reducers';
 
+    import { localeReducer as locale } from 'react-localize-redux';
+
 export var configure = (initialState = {}) => {
     var reducer = redux.combineReducers({
         // searchText: searchTextReducer,
@@ -15,7 +17,8 @@ export var configure = (initialState = {}) => {
         creditProps: creditPropsReducer,
         annuitetPayments: annuitetPaymentsReducer,
         activeCredit: activeCreditReducer,
-        commonAppState: commonAppStateReducer
+        commonAppState: commonAppStateReducer,
+        locale
     });
     
     initialState.creditProps = {
