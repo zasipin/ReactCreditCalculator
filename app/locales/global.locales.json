@@ -1,0 +1,10 @@
+{
+  "greeting": [
+    "Hello",      
+    "Привет"
+  ],
+  "farwell": [
+    "Goodbye",    
+    "Au revoir"  
+  ]
+}
