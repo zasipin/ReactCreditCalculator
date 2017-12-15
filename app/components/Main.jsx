@@ -6,6 +6,8 @@ import Bundle from 'Bundle';
 
 import loadMortage from 'bundle-loader?lazy!Mortage'
 
+import LanguageSelector from 'LanguageSelector';
+
 // components load their module for initial visit
 // const Mortage = (props) => (
 //   <Bundle load={loadMortage}>
@@ -42,6 +44,7 @@ class Main extends React.Component {
         <div className=" main">
           <div >
             <Nav />
+            <LanguageSelector />
             <MiddleBar />
             <div className="row small-12 columns">
               {this.props.children}

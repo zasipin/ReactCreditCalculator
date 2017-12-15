@@ -1,21 +1,36 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { getTranslate } from 'react-localize-redux';
 
 import * as actions from 'actions';
 
 class AddMonthsButton extends React.Component {
+  constructor(props){
+    super(props);
+    this.onAddMonths = this.onAddMonths.bind(this);
+    this.onMonthsToAddChange = this.onMonthsToAddChange.bind(this);
     
+    this.state = {
+      monthsToAdd: 1
+    };
+  }
+  
+  onAddMonths(e) {
+    e.preventDefault();
+    var months = this.state.monthsToAdd;
+    var {dispatch, sum, percents} = this.props;
+    dispatch(actions.addMonthsItem(sum, percents, months));
+    this.setState({ monthsToAdd: 1 });
+  }
+
+  onMonthsToAddChange(e) {
+    this.setState({monthsToAdd: e.target.value});
+  }
+
   render() {
 
-    const onAddMonths = (e) => {
-      e.preventDefault();
-      var months = this.refs.monthsToAdd.value;
-      dispatch(actions.addMonthsItem(sum, percents, months));
-      this.refs.monthsToAdd.value = 0;
-    }
-
-    var {isAddingMonths, sum, percents, dispatch} = this.props;
+    var {isAddingMonths, sum, percents, dispatch, translate} = this.props;
 
     const inputFieldRender = () => {
       if(isAddingMonths){
@@ -24,14 +39,16 @@ class AddMonthsButton extends React.Component {
             <div className="row">
               <div className="small-5 meduim-6 columns">
                 <label className="text-right middle" for="monthsToAdd">
-                  Добавить период (в месяцах)
+                {translate('addPeriodMonths')}
                 </label>
               </div>
               <div className="small-5 meduim-3 columns">
-                <input type="number" name="monthsToAdd" aria-describedby="nameHelpText" ref="monthsToAdd" min={1}/>
+                <input type="number" name="monthsToAdd" aria-describedby="nameHelpText" 
+                  value={this.state.monthsToAdd} min={1}
+                  onChange={this.onMonthsToAddChange}/>
               </div>
               <div className="small-2 medium-2 columns">
-                <input type="button" value="OK" className="button small" onClick={(e) => {onAddMonths(e);}}/>
+                <input type="button" value="OK" className="button small" onClick={this.onAddMonths}/>
               </div>
             </div>  
           </form>
@@ -42,9 +59,9 @@ class AddMonthsButton extends React.Component {
 
     const renderButtonValue = () => {
       if(isAddingMonths){
-        return "Скрыть";
+        return translate('hide');
       }
-      return "+ Добавить период"
+      return `+ ${translate('addPeriod')}`
     }
 
     const buttonPushed = (e) => {
@@ -65,11 +82,13 @@ class AddMonthsButton extends React.Component {
   }
 }
 
-export default 
-  withRouter(connect((state) => {
-      return { 
-      isAddingMonths: state.commonAppState.isAddingMonths,
-      sum: state.creditProps.sum,
-      percents: state.creditProps.percents
-    }
-  })(AddMonthsButton));
+const mapStateToProps = (state) => {
+  return { 
+    isAddingMonths: state.commonAppState.isAddingMonths,
+    sum: state.creditProps.sum,
+    percents: state.creditProps.percents,
+    translate: getTranslate(state.locale)
+  }
+};
+
+export default withRouter(connect(mapStateToProps)(AddMonthsButton));

@@ -3,13 +3,25 @@
     "Annual Percents",
     "Проценты годовые"
   ],
+  "addPeriod": [
+    "Add period",
+    "Добавить период"
+  ],
+  "addPeriodMonths": [
+    "Add period (in months)",
+    "Добавить период (в месяцах)"
+  ],
   "creditSum": [
     "Loan sum",
     "Сумма кредита"
   ],
   "currency": [
     "$",
-    "р"
+    "р."
+  ],
+  "hide": [
+    "Hide",
+    "Скрыть"
   ],
   "listHeaderDelete": [
     "Remove",
@@ -43,8 +55,20 @@
     "mon",    
     "мес"  
   ],
-  "Remove": [
+  "remove": [
     "Remove",
     "Удалить"
+  ],
+  "year": [
+    "year",
+    "год"
+  ],
+  "years_2_4": [
+    "years",
+    "года"
+  ],
+  "years_5": [
+    "years",
+    "лет"
   ]
 }

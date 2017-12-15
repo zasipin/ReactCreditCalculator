@@ -47,7 +47,7 @@ export class AnnuitetCreditComponent extends React.Component{
 			<td className="small-text">
 				<button className="button small" type="button" onClick={this.onRemoveClick}>
 					{/* <!-- Screen readers will see "close" --> */}
-					<span className="show-for-sr">translate('Remove')</span>
+					<span className="show-for-sr">translate('remove')</span>
 					{/* <!-- Visual users will see the X, but not the "Close" text --> */}
 					<span aria-hidden="true"><i className="fi-minus"> </i></span>
 				</button>
@@ -59,9 +59,11 @@ export class AnnuitetCreditComponent extends React.Component{
 					<div>{months} {translate('monthShort')}.
 				</div>
 			</td>
-			<td><Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> р.</td> 
-			<td><span className="dark-text">{parseInt(totalPay)}</span> {translate('currency')}.</td> 
-            <td><span className="dark-text">{parseInt(overpay)}</span> {translate('currency')}.</td>
+			<td>
+				<Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> {translate('currency')}
+			</td> 
+			<td><span className="dark-text">{parseInt(totalPay)}</span> {translate('currency')}</td> 
+            <td><span className="dark-text">{parseInt(overpay)}</span> {translate('currency')}</td>
 			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>
 		</tr>
 		)
