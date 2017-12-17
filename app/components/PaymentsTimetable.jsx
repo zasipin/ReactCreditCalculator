@@ -2,35 +2,34 @@ import React from 'react';
 // import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+import { getTranslate } from 'react-localize-redux';
 
 import PaymentsTimetableList from 'PaymentsTimetableList';
 import BackLink from 'BackLink';
 
-var PaymentsTimetable = (props) => {
-    var {match, months, history} = props;
-    
+var PaymentsTimetable = ({match, months, history, translate}) => {
+        
     var renderMonths = () => {
-        return months ? `, на ${months} месяцев` : '';
+        return months ? ` ${translate('for')} ${months} ${translate('months')}` : '';
     }   
     // console.log(props);
-
-
 
     return (
         <div className="row">
             <div className="small-12 medium-8 medium-offset-2 columns">
                 {/*<Link to="/" className="float-left" onClick={(e) => {goBack(e);}} >Назад</Link>*/}
                 <BackLink linkHistory={history}/>
-                <div className="text-center">График платежей{renderMonths()}</div></div>
+                <div className="text-center">{translate('paymentsTimetable')}{renderMonths()}</div></div>
             <PaymentsTimetableList />
         </div>
     )
 }
 
-export default withRouter(connect(
-	(state) => {
+const mapSateToProps = (state) => {
     return { 
-		months: state.activeCredit.months,
+        months: state.activeCredit.months,
+        translate: getTranslate(state.locale)
 	}
-})
-(PaymentsTimetable));
+}
+
+export default withRouter(connect(mapSateToProps)(PaymentsTimetable));
