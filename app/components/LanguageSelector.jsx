@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setActiveLanguage, getLanguages } from 'react-localize-redux';
+import { setActiveLanguage, getLanguages, getActiveLanguage } from 'react-localize-redux';
 
-const LanguageSelector = ({ languages, setActiveLanguage }) => (
-  <ul>
+const LanguageSelector = ({ languages, setActiveLanguage, currentLanguage }) => (
+  <select value={currentLanguage} onChange={ (e) => setActiveLanguage(e.target.value) }>
     { languages.map(language => 
-      <li key={language.code}><button onClick={ () => setActiveLanguage(language.code) }>{ language.code }</button></li>
+      <option key={language.code} value={ language.code }>{language.code}</option>
     )}
-  </ul>
+  </select>
 )
 
-const mapStateToProps = state => ({ languages: getLanguages(state.locale) });
+const mapStateToProps = state => (
+  { 
+    languages: getLanguages(state.locale),
+    currentLanguage: getActiveLanguage(state.locale).code
+  });
 const mapDispatchToProps = { setActiveLanguage };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageSelector);
