@@ -17,7 +17,6 @@ var PaymentsTimetable = ({match, months, history, translate}) => {
     return (
         <div className="row">
             <div className="small-12 medium-8 medium-offset-2 columns">
-                {/*<Link to="/" className="float-left" onClick={(e) => {goBack(e);}} >Назад</Link>*/}
                 <BackLink linkHistory={history}/>
                 <div className="text-center">{translate('paymentsTimetable')}{renderMonths()}</div></div>
             <PaymentsTimetableList />
