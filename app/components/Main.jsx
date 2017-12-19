@@ -43,8 +43,9 @@ class Main extends React.Component {
     return (
         <div className=" main">
           <div >
-            <Nav />
             <LanguageSelector />
+            <Nav />
+            
             <MiddleBar />
             <div className="row small-12 columns">
               {this.props.children}
