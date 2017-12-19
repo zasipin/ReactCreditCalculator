@@ -43,9 +43,9 @@ export class PaymentsTimetableList extends React.Component{
 							<tr>
 								<th className="small-text" style={{width:"10%"}}>{translate('month')}</th>
 								<th className="small-text" style={{width:"23%"}}>{translate('monthlyPayment')}</th>
-								<th className="small-text" style={{width:"23%"}}>Платеж за кредит</th>
-								<th className="small-text" style={{width:"20%"}}>Платеж за %</th>
-								<th className="small-text" style={{width:"23%"}}>Остаток долга</th>
+								<th className="small-text" style={{width:"23%"}}>{translate('paymentForLoan')}</th>
+								<th className="small-text" style={{width:"20%"}}>{translate('paymentFor')} %</th>
+								<th className="small-text" style={{width:"23%"}}>{translate('sumLeftToPay')}</th>
 							</tr>
 						</thead>
 						<tbody>

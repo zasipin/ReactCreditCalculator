@@ -15,6 +15,10 @@
     "Back",
     "Назад"
   ],
+  "cost": [
+    "Cost",    
+    "Стоимость"  
+  ],
   "creditSum": [
     "Loan sum",
     "Сумма кредита"
@@ -23,6 +27,10 @@
     "$",
     "р."
   ],
+  "downPayment": [
+    "Down payment",
+    "Первоначальный взнос"
+  ],  
   "for":[
     "for",
     "на"
@@ -71,6 +79,22 @@
     "months",    
     "месяцев"  
   ],
+  "monthlyPayment": [
+    "Monthly payment",    
+    "Ежемес. платеж"  
+  ],
+  "navConsumer": [
+    "CONSUMER",    
+    "ПОТРЕБИТЕЛЬСКИЙ"  
+  ],
+  "navMortage": [
+    "MORTAGE",    
+    "ИПОТЕКА"  
+  ],
+  "navCar": [
+    "CAR",    
+    "АВТОКРЕДИТ"  
+  ],
   "noData": [
     "No data",    
     "Нет данных"  
@@ -78,6 +102,14 @@
   "paymentsTimetable": [
     "Payments timetable",
     "График платежей"
+  ],
+  "paymentForLoan": [
+    "Payment for loan",    
+    "Платеж за кредит"  
+  ],
+  "paymentFor": [
+    "Payment for",    
+    "Платеж за"  
   ],
   "remove": [
     "Remove",
