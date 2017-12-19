@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setActiveLanguage, getLanguages, getActiveLanguage } from 'react-localize-redux';
 
 const LanguageSelector = ({ languages, setActiveLanguage, currentLanguage }) => (
-  <select value={currentLanguage} onChange={ (e) => setActiveLanguage(e.target.value) }>
+  <select value={currentLanguage} className="language-selector" onChange={ (e) => setActiveLanguage(e.target.value) }>
     { languages.map(language => 
       <option key={language.code} value={ language.code }>{language.code}</option>
     )}
