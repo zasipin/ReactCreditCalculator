@@ -1,5 +1,6 @@
 var staticCacheName = 'crcalc-static-v4.7.7';
 var contentImgsCache = 'crcalc-content-imgs';
+var firstPage = '/mortage';
 var allCaches = [
   staticCacheName,
   contentImgsCache
@@ -16,7 +17,7 @@ self.addEventListener('install', function(event) {
           .then(assets =>
             cache.addAll([
               "/",
-              "/consumer",
+              firstPage,
               assets["vendor.js"],
               assets["app.js"],
               assets["app.css"],
@@ -53,7 +54,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
   const curUrl = new URL(requestUrl);
-  if(curUrl.pathname === '/consumer'){
+  if(curUrl.pathname === firstPage){
     event.respondWith(caches.match('/'));
     return;
   }
