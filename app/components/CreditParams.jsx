@@ -32,6 +32,7 @@ class CreditParams extends React.Component{
                             <input type="number" id="percents" name="percents" ref="percents" value={percents} min={min}
                             onChange={() => {
                                 var percents = this.refs.percents.value;
+                                if (isNaN(parseFloat(percents))) return;
                                 dispatch(actions.setPercents(percents));
                             }}/>                    
                     </div>

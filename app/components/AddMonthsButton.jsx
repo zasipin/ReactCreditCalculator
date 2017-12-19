@@ -25,7 +25,8 @@ class AddMonthsButton extends React.Component {
   }
 
   onMonthsToAddChange(e) {
-    this.setState({monthsToAdd: e.target.value});
+    if (isNaN(parseFloat(e.target.value))) return;
+    this.setState({monthsToAdd: Math.floor(e.target.value)});
   }
 
   render() {
