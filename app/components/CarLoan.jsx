@@ -16,8 +16,8 @@ class CarLoan extends React.Component{
 			</CreditParamsForm>
 			{/* <AnnuitetLoanList /> */}
 
-			<Route exact path="/car" component={AnnuitetLoanList}/>
-			<Route exact path="/car/payments" component={PaymentsTimetable}/>
+			<Route exact path="./car" component={AnnuitetLoanList}/>
+			<Route exact path="./car/payments" component={PaymentsTimetable}/>
 
 			{this.props.children}
 

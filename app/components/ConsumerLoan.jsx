@@ -24,8 +24,8 @@ export class ConsumerLoan extends React.Component{
 			</CreditParamsForm>
 			{/* <AnnuitetLoanList /> */}
 
-			<Route exact path="/consumer" component={AnnuitetLoanList}/>
-			<Route exact path="/consumer/payments" component={PaymentsTimetable}/>
+			<Route exact path="./consumer" component={AnnuitetLoanList}/>
+			<Route exact path="./consumer/payments" component={PaymentsTimetable}/>
 
 			{this.props.children}
 		</div>

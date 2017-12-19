@@ -20,8 +20,8 @@ class Mortage extends React.Component{
 					<PriceCreditParams />
 				</CreditParamsForm>
 
-				<Route exact path="/mortage" component={AnnuitetLoanList}/>
-				<Route exact path="/mortage/payments" component={PaymentsTimetable}/>
+				<Route exact path="./mortage" component={AnnuitetLoanList}/>
+				<Route exact path="./mortage/payments" component={PaymentsTimetable}/>
 
 				{this.props.children}
 				

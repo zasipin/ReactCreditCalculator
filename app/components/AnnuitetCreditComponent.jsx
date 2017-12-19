@@ -36,7 +36,7 @@ export class AnnuitetCreditComponent extends React.Component{
     var {overpay, monthlyPay, totalPay, overpayPercentage, months, currentRouteName, translate} = this.props;
 		var paymentsRoute = 'payments';
 		var linkTo;
-		if(currentRouteName === '/' || !currentRouteName){
+		if(currentRouteName === './' || !currentRouteName){
 			linkTo = paymentsRoute;			
 		} else {
 			linkTo = `${currentRouteName}/${paymentsRoute}`;			

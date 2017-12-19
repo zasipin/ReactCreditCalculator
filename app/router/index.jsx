@@ -8,8 +8,8 @@ import Mortage from 'Mortage';
 export default (
       <BrowserRouter>
             <div>
-                  <Route path="/" component={Main} />
-                  <Route path="/" render={() => <Redirect to="/mortage" component={Mortage} />} />
+                  <Route path="./" component={Main} />
+                  <Route path="./" render={() => <Redirect to="./mortage" component={Mortage} />} />
             </div>
       </BrowserRouter>
 )

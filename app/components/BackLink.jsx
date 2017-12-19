@@ -12,7 +12,7 @@ var BackLink = ({linkHistory, translate, backClass}) => {
     var backText = `< ${translate('back')}`;
 
     return (
-        <Link to="/" className={backClass} onClick={(e) => {goBack(e);}}>{backText}</Link>
+        <Link to="./" className={backClass} onClick={(e) => {goBack(e);}}>{backText}</Link>
     )
 }
 
