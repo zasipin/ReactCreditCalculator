@@ -3,6 +3,8 @@ import Nav from 'Nav';
 import MiddleBar from 'MiddleBar';
 import {Route} from 'react-router-dom';
 import Bundle from 'Bundle';
+import {Helmet} from 'react-helmet';
+import { localize } from 'react-localize-redux';
 
 import loadMortage from 'bundle-loader?lazy!Mortage'
 
@@ -39,9 +41,13 @@ class Main extends React.Component {
 
   render() {
     let {CarLoan, Mortage} = this.state;
+    let {translate} = this.props;
 
     return (
         <div className=" main">
+          <Helmet>
+            <title>{translate('title')}</title>
+          </Helmet>
           <div >
             <LanguageSelector />
             <Nav />
@@ -61,5 +67,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
-
+export default localize(Main, 'locale')
