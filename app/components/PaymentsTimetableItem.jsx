@@ -5,16 +5,16 @@ import {getTranslate} from 'react-localize-redux';
 export class PaymentsTimetableItem extends React.Component{
 
     render() {
-        var {payment, months} = this.props;
+        var {payment, months, translate} = this.props;
         var paymentState = payment.getData();
         return (
             // <div>
                 <tr>
                     <td>{parseInt(months - paymentState.months + 1)}</td>
-                    <td>{parseInt(paymentState.monthlyPay)} translate('currency')</td>
-                    <td><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> translate('currency')</td>
-                    <td><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> translate('currency')</td>
-                    <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> translate('currency')</td>
+                    <td>{parseInt(paymentState.monthlyPay)} {translate('currency')}</td>
+                    <td><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> {translate('currency')}</td>
+                    <td><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> {translate('currency')}</td>
+                    <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> {translate('currency')}</td>
                 </tr>
             // </div>
         )

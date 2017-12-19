@@ -1,6 +1,6 @@
 {
   "annualPercents": [
-    "Annual Percents",
+    "Annual percents",
     "Проценты годовые"
   ],
   "addPeriod": [
@@ -114,6 +114,14 @@
   "remove": [
     "Remove",
     "Удалить"
+  ],
+  "sumLeftToPay": [
+    "Sum left to pay",
+    "Остаток долга"
+  ],  
+  "title": [
+    "Loan Calculator",
+    "Кредитный калькулятор"
   ],
   "year": [
     "year",
