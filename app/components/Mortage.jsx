@@ -6,7 +6,7 @@ import CreditParamsForm from 'CreditParamsForm';
 import AnnuitetLoanList from 'AnnuitetLoanList';
 import BigTextLabel from 'BigTextLabel';
 import PaymentsTimetable from 'PaymentsTimetable';
-
+import BigTextLabelComponent from 'BigTextLabelComponent';
 import { localize } from 'react-localize-redux';
 
 class Mortage extends React.Component{
@@ -15,13 +15,7 @@ class Mortage extends React.Component{
 		var { translate } = this.props;
 		return (
 			<div>
-				<div className="show-for-medium">
-					<BigTextLabel>
-						{ translate('makeDecision') }
-						<br/>
-						{ translate('loanCalcRod') }
-					</BigTextLabel>	
-				</div>
+				<BigTextLabelComponent />
 				<CreditParamsForm>
 					<PriceCreditParams />
 				</CreditParamsForm>
