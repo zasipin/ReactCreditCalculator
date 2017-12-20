@@ -6,7 +6,7 @@ import ConsumerLoan from 'ConsumerLoan';
 import Mortage from 'Mortage'; 
 
 export default (
-      <BrowserRouter>
+      <BrowserRouter  basename="/loancalculator/">
             <div>
                   <Route path="/" component={Main} />
                   <Route path="/" render={() => <Redirect to="/mortage" component={Mortage} />} />
