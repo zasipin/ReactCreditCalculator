@@ -17,9 +17,9 @@ class Nav extends React.Component{
 				
   				{/*<div className="top-bar-center">*/}
 						<ul className="menu vertical medium-horizontal">
-							<li><NavLink to="./consumer" activeClassName="active">{translate("navConsumer")}</NavLink></li>
-							<li><NavLink to="./mortage" activeClassName="active">{translate("navMortage")}</NavLink></li>
-							<li><NavLink to="./car" activeClassName="active">{translate("navCar")}</NavLink></li>
+							<li><NavLink to="/consumer" activeClassName="active">{translate("navConsumer")}</NavLink></li>
+							<li><NavLink to="/mortage" activeClassName="active">{translate("navMortage")}</NavLink></li>
+							<li><NavLink to="/car" activeClassName="active">{translate("navCar")}</NavLink></li>
 							{/*<li><Link to="/about" activeClassName="active">О ПРОЕКТЕ</Link></li>*/}
 						</ul>
 					{/*</div>	*/}

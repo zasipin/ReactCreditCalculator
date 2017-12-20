@@ -56,10 +56,10 @@ class Main extends React.Component {
             <div className="row small-12 columns">
               {this.props.children}
 
-              <Route path="./consumer" component={ConsumerLoan} /> 
+              <Route path="/consumer" component={ConsumerLoan} /> 
               {/* {CarLoan} */}
-              <Route path="./car" component={CarLoan}/>
-              <Route path="./mortage" component={Mortage}/>
+              <Route path="/car" component={CarLoan}/>
+              <Route path="/mortage" component={Mortage}/>
             </div>
           </div>
         </div>
