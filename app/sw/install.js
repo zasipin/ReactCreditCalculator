@@ -4,7 +4,7 @@ function install(){
 
     if(!navigator.serviceWorker) return;
     
-    navigator.serviceWorker.register(swURL, {scope: '/'}).then(reg => {
+    navigator.serviceWorker.register(swURL, {scope: '/loancalculator/'}).then(reg => {
         //console.log('sw registered');
     });
 }
