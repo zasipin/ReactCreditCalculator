@@ -16,17 +16,20 @@ self.addEventListener('install', function(event) {
           .then(response => response.json())
           .then(assets =>
             cache.addAll([
-              "/",
-              firstPage,
+              "./",
+              // firstPage,
               assets["vendor.js"],
               assets["app.js"],
               assets["app.css"],
               assets["0.bundle.js"],
               assets["1.bundle.js"],
-              assets["2.bundle.js"],
+              // assets["2.bundle.js"],
               assets["public\\fonts\\foundation-icons.ttf"],
             ])
-          ).catch(err=>{})
+          ).catch(err=>
+            {
+              console.log(err);
+            })
     })
     .then(()=> {
         //console.log('skipping wait');
@@ -55,7 +58,7 @@ self.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
   const curUrl = new URL(requestUrl);
   if(curUrl.pathname === firstPage){
-    event.respondWith(caches.match('/'));
+    event.respondWith(caches.match('./'));
     return;
   }
 
