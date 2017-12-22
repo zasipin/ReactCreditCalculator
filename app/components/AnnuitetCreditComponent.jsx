@@ -56,14 +56,14 @@ export class AnnuitetCreditComponent extends React.Component{
 				<div>
 					<ShowYear months={months}/>
 				</div>
-					<div>{months} {translate('monthShort')}.
+					<div>({months} {translate('monthShort')}.)
 				</div>
 			</td>
 			<td>
-				<Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> {translate('currency')}
+				<Link to={linkTo} onClick={(e) => {this.onPaymentsClick(e, months)}} className="show-payments">{parseInt(monthlyPay)}</Link> 
 			</td> 
-			<td><span className="dark-text">{parseInt(totalPay)}</span> {translate('currency')}</td> 
-            <td><span className="dark-text">{parseInt(overpay)}</span> {translate('currency')}</td>
+			<td><span className="dark-text">{parseInt(totalPay)}</span> </td> 
+      <td><span className="dark-text">{parseInt(overpay)}</span> </td>
 			<td><span className="dark-text">{parseFloat(overpayPercentage).toFixed(2)}</span> %</td>
 		</tr>
 		)
