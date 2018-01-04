@@ -21,7 +21,7 @@ class AddMonthsButton extends React.Component {
     var months = this.state.monthsToAdd;
     var {dispatch, sum, percents} = this.props;
     dispatch(actions.addMonthsItem(sum, percents, months));
-    this.setState({ monthsToAdd: 1 });
+    this.setState(()=>({ monthsToAdd: 1 }));
   }
 
   onMonthsToAddChange(e) {
