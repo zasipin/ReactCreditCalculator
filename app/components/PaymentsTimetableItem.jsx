@@ -5,8 +5,15 @@ import * as actions from 'actions';
 
 export class PaymentsTimetableItem extends React.Component{
 
+    onChangeAdditionalPaymentHandler = (e) => {
+        let {months, dispatch} = this.props,
+             extraPay = e.target.value;
+        if (isNaN(parseFloat(extraPay))) return;
+        dispatch(actions.setAdditionalPaymentItem(months, extraPay));
+    }
+
     render() {
-        var {payment, months, translate, dispatch} = this.props;
+        var {payment, months, translate} = this.props;
         var paymentState = payment.getData();
         let min = 0;
         return (
@@ -19,11 +26,7 @@ export class PaymentsTimetableItem extends React.Component{
                     <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> {translate('currency')}</td>
                     <td><span className="dark-text">
                     <input type="number" id="additionalPayment" name="additionalPayment" value={paymentState.extraPay} min={min}
-                            onChange={(e) => {
-                                var extraPay = e.target.value;
-                                if (isNaN(parseFloat(extraPay))) return;
-                                dispatch(actions.setAdditionalPaymentItem(months, extraPay));
-                            }}/></span></td>
+                            onChange={this.onChangeAdditionalPaymentHandler}/></span></td>
                 </tr>
             // </div>
         )
