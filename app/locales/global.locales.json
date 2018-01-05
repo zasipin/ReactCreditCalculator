@@ -1,4 +1,8 @@
 {
+  "additionalPayment": [
+    "Additional payment",
+    "Дополнительный платеж"
+  ],
   "annualPercents": [
     "Annual percents",
     "Проценты годовые"

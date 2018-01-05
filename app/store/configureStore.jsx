@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
     // searchTextReducer, showCompletedReducer, todosReducer, 
     authReducer, creditPropsReducer, annuitetPaymentsReducer,
-    activeCreditReducer, commonAppStateReducer } from 'reducers';
+    activeCreditReducer, commonAppStateReducer, paymentsTimetableReducer } from 'reducers';
 
     import { localeReducer as locale } from 'react-localize-redux';
 
@@ -18,6 +18,7 @@ export var configure = (initialState = {}) => {
         annuitetPayments: annuitetPaymentsReducer,
         activeCredit: activeCreditReducer,
         commonAppState: commonAppStateReducer,
+        paymentsTimetable: paymentsTimetableReducer,
         locale
     });
     

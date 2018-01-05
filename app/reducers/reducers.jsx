@@ -1,4 +1,5 @@
 import {AnnuitetCredit} from 'AnnuitetCredit';
+import {AnnuitetMonthlyPayment} from 'AnnuitetMonthlyPayment';
 
 export function authReducer(state = {}, action){
     return state;
@@ -29,6 +30,45 @@ export function creditPropsReducer(state = {}, action){
                 downPayment: action.downPayment,
                 sum: state.price - action.downPayment 
             }            
+        default:
+            return state;
+    }    
+}
+
+export function paymentsTimetableReducer(state = [], action){
+    switch(action.type){
+        case 'SET_ADDITIONAL_PAYMENT':
+            let itemIndex = state.findIndex((val)=>{ return parseInt(val.getData().months) == parseInt(action.months) }),
+                item = state[itemIndex],
+                itemState = item.getData(),
+                payment = new AnnuitetMonthlyPayment(itemState.sum, itemState.percents, itemState.months, action.extraPay),
+                leftToPay = payment.getData().leftToPay,
+                leftPayments = state.filter((val, index) => { return index > itemIndex }).map((leftPayment)=>{
+                    let leftPaymentState = leftPayment.getData();
+                    let payment = new AnnuitetMonthlyPayment(leftToPay, leftPaymentState.percents, leftPaymentState.months, leftPaymentState.extraPay);
+                    leftToPay = payment.getData().leftToPay;
+                    return payment;
+                });
+            
+            return [
+                ...state.filter((val, index) => { return index < itemIndex }),
+                payment,
+                ...leftPayments // add left payments, recreate them                
+            ];
+            // .sort((a, b) => 
+            //          { return parseInt(a.getData().months) - parseInt(b.getState().months) }
+            //     );
+        case 'SET_PAYMENTS_TIMETABLE':
+            let items = [], 
+                months = action.months,
+                sum = action.sum;
+            for(;months > 0; months--)
+			{
+                let payment = new AnnuitetMonthlyPayment(sum, action.percents, months);
+                items.push(payment);
+				sum = payment.getData().leftToPay;
+            }
+            return items;
         default:
             return state;
     }    

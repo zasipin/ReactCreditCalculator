@@ -1,12 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getTranslate} from 'react-localize-redux';
+import * as actions from 'actions';
 
 export class PaymentsTimetableItem extends React.Component{
 
     render() {
-        var {payment, months, translate} = this.props;
+        var {payment, months, translate, dispatch} = this.props;
         var paymentState = payment.getData();
+        let min = 0;
         return (
             // <div>
                 <tr>
@@ -15,6 +17,13 @@ export class PaymentsTimetableItem extends React.Component{
                     <td><span className="dark-text">{parseInt(paymentState.paymentForCredit)}</span> {translate('currency')}</td>
                     <td><span className="dark-text">{parseInt(paymentState.paymentForPercents)}</span> {translate('currency')}</td>
                     <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> {translate('currency')}</td>
+                    <td><span className="dark-text">
+                    <input type="number" id="additionalPayment" name="additionalPayment" value={paymentState.extraPay} min={min}
+                            onChange={(e) => {
+                                var extraPay = e.target.value;
+                                if (isNaN(parseFloat(extraPay))) return;
+                                dispatch(actions.setAdditionalPaymentItem(months, extraPay));
+                            }}/></span></td>
                 </tr>
             // </div>
         )

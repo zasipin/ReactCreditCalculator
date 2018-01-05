@@ -12,6 +12,7 @@ export class AnnuitetMonthlyPayment {
             extraPay,
             paymentForCredit: 0,
             paymentForPercents: 0,
+            totalPaymentForCredit: 0,
             leftToPay: 0
         };
         return this.recalculate(this.state.sum, this.state.percents, this.state.extraPay);
@@ -27,6 +28,7 @@ export class AnnuitetMonthlyPayment {
             state.monthlyPay = parseInt(sum * state.annuitetCoefficient);
             state.paymentForPercents = parseInt(sum * monthlyPercent);
             state.paymentForCredit = state.monthlyPay - state.paymentForPercents;
+            state.totalPaymentForCredit = state.monthlyPay - state.paymentForPercents + state.extraPay;
             state.leftToPay = parseInt(state.sum - state.paymentForCredit - state.extraPay);
         return this;
     }

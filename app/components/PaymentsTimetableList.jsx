@@ -3,37 +3,45 @@ import {connect} from 'react-redux';
 import PaymentsTimetableItem from 'PaymentsTimetableItem';
 import {AnnuitetMonthlyPayment} from 'AnnuitetMonthlyPayment';
 import { getTranslate } from 'react-localize-redux';
+import * as actions from 'actions'
 
 export class PaymentsTimetableList extends React.Component{
 
+	componentDidMount(){
+		var {sum, percents, months, dispatch} = this.props;
+		dispatch(actions.setPaymentsTimetable({sum, percents, months}));
+	}
+
 	render() {
 		// console.log(this);
-		var {sum, percents, months, translate} = this.props;
+		var {sum, percents, months, translate, paymentsTimetable} = this.props;
 		// var currentRouteName = this.props.location.pathname;
 
 		var renderEmptyRow = () => {
 			return (
 				<tr>
-					<td colSpan='5' className="text-center">{translate('noData')}</td>
+					<td colSpan='6' className="text-center">{translate('noData')}</td>
 				</tr>
 			)
 		}
 		
 		var renderTimetableItems = () => {
 			var index = 0, items = [];
-			for(;months > 0; months--)
-			{
-				// sum = 0, percents = 0, months = 0, extraPay = 0
-				var payment = new AnnuitetMonthlyPayment(sum, percents, months);
-				items.push(<PaymentsTimetableItem key={index} payment={payment}/>);
-				sum = sum - payment.getData().paymentForCredit;
-				index++;
-			}
+			
+			items = paymentsTimetable.map((payment, index) => (<PaymentsTimetableItem key={index} payment={payment}/>) );
+
+			// for(;months > 0; months--)
+			// {
+			// 	// sum = 0, percents = 0, months = 0, extraPay = 0
+			// 	var payment = new AnnuitetMonthlyPayment(sum, percents, months);
+			// 	items.push(<PaymentsTimetableItem key={index} payment={payment}/>);
+			// 	sum = sum - payment.getData().paymentForCredit;
+			// 	index++;
+			// }
+
 			
 			return items.length > 0 ? items : renderEmptyRow();
 		}
-
-		
 
 		return (
 		  <div className="row"> 
@@ -41,11 +49,12 @@ export class PaymentsTimetableList extends React.Component{
 					<table className="unstriped loan-table">
 						<thead>
 							<tr>
-								<th className="small-text" style={{width:"10%"}}>{translate('month')}</th>
-								<th className="small-text" style={{width:"23%"}}>{translate('monthlyPayment')}</th>
-								<th className="small-text" style={{width:"23%"}}>{translate('paymentForLoan')}</th>
-								<th className="small-text" style={{width:"20%"}}>{translate('paymentFor')} %</th>
-								<th className="small-text" style={{width:"23%"}}>{translate('sumLeftToPay')}</th>
+								<th className="small-text" style={{width:"7%"}}>{translate('month')}</th>
+								<th className="small-text" style={{width:"20%"}}>{translate('monthlyPayment')}</th>
+								<th className="small-text" style={{width:"20%"}}>{translate('paymentForLoan')}</th>
+								<th className="small-text" style={{width:"18%"}}>{translate('paymentFor')} %</th>
+								<th className="small-text" style={{width:"20%"}}>{translate('sumLeftToPay')}</th>
+								<th className="small-text" style={{width:"18%"}}>{translate('additionalPayment')}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -65,7 +74,8 @@ const mapStateToProps = (state) => {
 		months: state.activeCredit.months,
         sum: state.creditProps.sum,
 		percents: state.creditProps.percents,
-		translate: getTranslate(state.locale)
+		translate: getTranslate(state.locale),
+		paymentsTimetable: state.paymentsTimetable
 	}
 }
 

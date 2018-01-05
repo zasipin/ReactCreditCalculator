@@ -51,6 +51,24 @@ export function removeMonthsItem(months) {
     }
 }
 
+export function setAdditionalPaymentItem(months, extraPay) {
+    // months = months > 0 ? months : 12;
+    return {
+        type: 'SET_ADDITIONAL_PAYMENT',
+        months,
+        extraPay
+    }
+}
+
+export function setPaymentsTimetable({sum, percents, months}) {
+    return {
+        type: 'SET_PAYMENTS_TIMETABLE',
+        sum,
+        percents,
+        months
+    }
+}
+
 export function setActiveCreditMonths(months) {
     return {
         type: 'SET_ACTIVE_CREDIT_MONTHS',
