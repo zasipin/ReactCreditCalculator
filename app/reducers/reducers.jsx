@@ -43,7 +43,8 @@ export function paymentsTimetableReducer(state = [], action){
                 itemState = item.getData(),
                 payment = new AnnuitetMonthlyPayment(itemState.sum, itemState.percents, itemState.months, action.extraPay),
                 leftToPay = payment.getData().leftToPay,
-                leftPayments = state.filter((val, index) => { return index > itemIndex }).map((leftPayment)=>{
+                // leftPayments = state.filter((val, index) => { return index > itemIndex }).map((leftPayment)=>{
+                leftPayments = state.slice(itemIndex + 1).map((leftPayment)=>{
                     let leftPaymentState = leftPayment.getData();
                     let payment = new AnnuitetMonthlyPayment(leftToPay, leftPaymentState.percents, leftPaymentState.months, leftPaymentState.extraPay);
                     leftToPay = payment.getData().leftToPay;
@@ -51,7 +52,8 @@ export function paymentsTimetableReducer(state = [], action){
                 });
             
             return [
-                ...state.filter((val, index) => { return index < itemIndex }),
+                //...state.filter((val, index) => { return index < itemIndex }),
+                ...state.slice(0, itemIndex),    
                 payment,
                 ...leftPayments // add left payments, recreate them                
             ];
