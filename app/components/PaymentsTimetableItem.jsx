@@ -6,8 +6,9 @@ import * as actions from 'actions';
 export class PaymentsTimetableItem extends React.Component{
 
     onChangeAdditionalPaymentHandler = (e) => {
-        let {months, dispatch} = this.props,
-             extraPay = e.target.value;
+        let {payment, dispatch} = this.props,
+             extraPay = e.target.value,
+             months = payment.getData().months;
         if (isNaN(parseFloat(extraPay))) return;
         dispatch(actions.setAdditionalPaymentItem(months, extraPay));
     }
