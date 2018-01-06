@@ -38,17 +38,26 @@ export function creditPropsReducer(state = {}, action){
 export function paymentsTimetableReducer(state = [], action){
     switch(action.type){
         case 'SET_ADDITIONAL_PAYMENT':
-            let itemIndex = state.findIndex((val)=>{ return parseInt(val.getData().months) == parseInt(action.months) }),
-                item = state[itemIndex],
-                itemState = item.getData(),
-                payment = new AnnuitetMonthlyPayment(itemState.sum, itemState.percents, itemState.months, action.extraPay),
-                leftToPay = payment.getData().leftToPay,
-                // leftPayments = state.filter((val, index) => { return index > itemIndex }).map((leftPayment)=>{
-                leftPayments = state.slice(itemIndex + 1).map((leftPayment)=>{
+            let itemIndex = state.findIndex((val)=>{ return parseInt(val.getData().months) == parseInt(action.months) });
+            
+            if(itemIndex < 0){
+                return state;
+            }
+            
+            let item = state[itemIndex];
+            let itemState = item.getData();
+            let payment = new AnnuitetMonthlyPayment(itemState.sum, itemState.percents, itemState.months, action.extraPay);
+            let leftToPay = payment.getData().leftToPay;
+            // let leftPayments = state.filter((val, index) => { return index > itemIndex }).map((leftPayment)=>{
+            let leftPayments = state.slice(itemIndex + 1).map((leftPayment)=>{
                     let leftPaymentState = leftPayment.getData();
                     let payment = new AnnuitetMonthlyPayment(leftToPay, leftPaymentState.percents, leftPaymentState.months, leftPaymentState.extraPay);
                     leftToPay = payment.getData().leftToPay;
                     return payment;
+                    // если использовать recalculate, то в Item надо передавать sum, например, т.к. она меняется
+                    // leftToPay= leftPayment.recalculate(leftToPay, leftPaymentState.percents, leftPaymentState.extraPay).getData().leftToPay;
+                    // return leftPayment;
+               
                 });
             
             return [
