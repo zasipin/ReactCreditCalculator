@@ -19,9 +19,10 @@ export class AnnuitetCreditComponent extends React.Component{
 	}
 
 	onPaymentsClick(e, months) {
-		var {dispatch} = this.props;
+		var {dispatch, sum, percents} = this.props;
 		// e.preventDefault();
 		dispatch(actions.setActiveCreditMonths(months));
+		dispatch(actions.setPaymentsTimetable({sum, percents, months}));
 		// console.log("On link clicked months", months);
 	}
 
@@ -71,7 +72,9 @@ export class AnnuitetCreditComponent extends React.Component{
 };
 
 const mapStateToProps = state => ({
-  translate: getTranslate(state.locale),
+	translate: getTranslate(state.locale),
+	sum: state.creditProps.sum,
+	percents: state.creditProps.percents,
 });
 
 export default withRouter(connect(mapStateToProps)(AnnuitetCreditComponent));
