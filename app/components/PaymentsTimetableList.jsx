@@ -6,43 +6,65 @@ import { getTranslate } from 'react-localize-redux';
 import * as actions from 'actions'
 
 export class PaymentsTimetableList extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			items: []
+		}
+		this.firstShowRows = 25;
+	}	
 
-	componentDidMount(){
+	componentWillMount(){
 		var {sum, percents, months, dispatch} = this.props;
-		dispatch(actions.setPaymentsTimetable({sum, percents, months}));
+		//dispatch(actions.setPaymentsTimetable({sum, percents, months}));
+		
+	}
+	componentDidMount(){
+		this.constructTimetableItems(this.props);
+	}
+	renderEmptyRow = () => {
+		let {translate} = this.props;
+		return (
+			<tr>
+				<td colSpan='6' className="text-center">{translate('noData')}</td>
+			</tr>
+		)
+	}
+
+	constructTimetableItems = ({sum, percents, months, paymentsTimetable}) => {
+		
+
+		var index = 0, items = [];
+		let itemsPartial = [];
+		items = paymentsTimetable.map((payment, index) => (<PaymentsTimetableItem key={index} payment={payment}/>) );
+
+		// setTimeout(()=>{
+		// 	if(items.length > this.firstShowRows){
+		// 		this.setState(()=> ({items: items}));
+		// 	}
+		// }, 10);
+		
+		// let sliceLength = items.length > this.firstShowRows ? this.firstShowRows : items.length;
+
+		// this.setState(()=> ({items: items.slice(0, sliceLength)}));
+
+		this.setState(()=> ({items}));
+
+		// return items.length > 0 ? items.slice(0, sliceLength) : this.renderEmptyRow();
+
+	}
+
+	componentWillReceiveProps(nextProps){
+		let {paymentsTimetable : nextPaymentsTimetable } = nextProps;
+		if(nextPaymentsTimetable != this.props.paymentsTimetable){
+			this.constructTimetableItems(nextProps);
+		}
 	}
 
 	render() {
 		// console.log(this);
 		var {sum, percents, months, translate, paymentsTimetable} = this.props;
-		// var currentRouteName = this.props.location.pathname;
-
-		var renderEmptyRow = () => {
-			return (
-				<tr>
-					<td colSpan='6' className="text-center">{translate('noData')}</td>
-				</tr>
-			)
-		}
 		
-		var renderTimetableItems = () => {
-			var index = 0, items = [];
-			
-			items = paymentsTimetable.map((payment, index) => (<PaymentsTimetableItem key={index} payment={payment}/>) );
-
-			// for(;months > 0; months--)
-			// {
-			// 	// sum = 0, percents = 0, months = 0, extraPay = 0
-			// 	var payment = new AnnuitetMonthlyPayment(sum, percents, months);
-			// 	items.push(<PaymentsTimetableItem key={index} payment={payment}/>);
-			// 	sum = sum - payment.getData().paymentForCredit;
-			// 	index++;
-			// }
-
-			
-			return items.length > 0 ? items : renderEmptyRow();
-		}
-
 		return (
 		  <div className="row"> 
 				<div className="small-12 medium-8 medium-offset-2 columns">
@@ -54,11 +76,12 @@ export class PaymentsTimetableList extends React.Component{
 								<th className="small-text" style={{width:"20%"}}>{translate('paymentForLoan')}</th>
 								<th className="small-text" style={{width:"18%"}}>{translate('paymentFor')} %</th>
 								<th className="small-text" style={{width:"20%"}}>{translate('sumLeftToPay')}</th>
-								<th className="small-text" style={{width:"18%"}}>{translate('additionalPayment')}</th>
+								<th className="small-text" style={{width:"20%"}}>{translate('additionalPayment')}</th>
 							</tr>
 						</thead>
 						<tbody>
-							{renderTimetableItems()}
+							{/* {renderTimetableItems()} */}
+							{this.state.items}
 						</tbody>
 					</table>	
 					
@@ -72,7 +95,7 @@ const mapStateToProps = (state) => {
     return { 
 		// annuitetPayments: state.annuitetPayments,
 		months: state.activeCredit.months,
-        sum: state.creditProps.sum,
+    sum: state.creditProps.sum,
 		percents: state.creditProps.percents,
 		translate: getTranslate(state.locale),
 		paymentsTimetable: state.paymentsTimetable

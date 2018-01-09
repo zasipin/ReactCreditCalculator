@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import {getTranslate} from 'react-localize-redux';
 import * as actions from 'actions';
@@ -27,23 +28,18 @@ export class PaymentsTimetableItem extends React.Component{
                     <td><span className="dark-text">{parseInt(paymentState.leftToPay)}</span> {translate('currency')}</td>
                     <td><span className="dark-text">
                     <input type="number" id="additionalPayment" name="additionalPayment" value={paymentState.extraPay} min={min}
-                            onChange={this.onChangeAdditionalPaymentHandler}/></span></td>
+                            onChange={this.onChangeAdditionalPaymentHandler}
+                            /></span></td>
                 </tr>
             // </div>
         )
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
-    //     // sum: state.creditProps.sum,
-    //     percents: state.creditProps.percents,
-    //     step: state.creditProps.step,
-    //     price: state.creditProps.price,
-    //     downPayment: state.creditProps.downPayment
         months: state.activeCredit.months,
-        // sum: state.creditParams.sum,
-        // percents: state.creditParams.percents
         translate: getTranslate(state.locale)
     }
 };
