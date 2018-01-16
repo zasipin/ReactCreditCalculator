@@ -69,13 +69,12 @@ export function setPaymentsTimetable({sum, percents, months}) {
     }
 }
 
-export function setActiveCreditMonths(months) {
+export function setActiveCreditMonths(months, sum, percents) {
     return {
         type: 'SET_ACTIVE_CREDIT_MONTHS',
-        months
-        // ,
-        // sum,
-        // percents
+        months,
+        sum,
+        percents
     }
 }
 

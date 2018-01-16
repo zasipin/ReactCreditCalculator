@@ -15,7 +15,7 @@ export class PaymentsTimetableList extends React.Component{
 	}	
 
 	componentWillMount(){
-		var {sum, percents, months, dispatch} = this.props;
+		//var {sum, percents, months, dispatch} = this.props;
 		//dispatch(actions.setPaymentsTimetable({sum, percents, months}));
 		
 	}
@@ -81,7 +81,7 @@ export class PaymentsTimetableList extends React.Component{
 						</thead>
 						<tbody>
 							{/* {renderTimetableItems()} */}
-							{this.state.items}
+							{this.state.items.length > 0 ? this.state.items : this.renderEmptyRow() }
 						</tbody>
 					</table>	
 					

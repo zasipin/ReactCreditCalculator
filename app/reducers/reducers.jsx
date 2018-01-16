@@ -128,10 +128,10 @@ export function activeCreditReducer(state = {}, action){
 
             return {
                 ...state,
-                months: action.months
+                months: action.months,
                 // ,
-                // sum: action.sum,
-                // percents: action.percents
+                sum: action.sum,
+                percents: action.percents
             }
         default:
             return state;    
