@@ -7,6 +7,7 @@ const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 var NODE_ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var isProduction = NODE_ENV === 'production';
 
 module.exports = {
   context: __dirname, // string (absolute path!)
@@ -158,10 +159,10 @@ module.exports = {
     noParse: /(jquery)/, 
   },
   //noParse: /(jquery)/, 
-  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
+  devtool: isProduction ? undefined : 'cheap-module-eval-source-map'
 };
 
-if(NODE_ENV == 'production'){
+if(isProduction){
 
   module.exports.plugins.push(
     new webpack.DefinePlugin({
