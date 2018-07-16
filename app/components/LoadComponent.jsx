@@ -8,10 +8,12 @@ class LoadComponent extends React.Component {
   componentWillMount() {
     import(this.props.component)
       .then(Component => {
-        this.setState({component:Component.default})
+        // this.setState({component:Component.default})
+        this.setState(()=> ({component:Component.default}));
       })
       .catch(error => {
-        this.setState({error})
+        // this.setState({error})
+        this.setState(()=> ({error}));
       })
   }
   render() {
