@@ -32,11 +32,10 @@ export class PaymentsTimetableList extends React.Component{
 	}
 
 	constructTimetableItems = ({sum, percents, months, paymentsTimetable}) => {
-		
-
 		var index = 0, items = [];
 		let itemsPartial = [];
-		items = paymentsTimetable.map((payment, index) => (<PaymentsTimetableItem key={index} payment={payment}/>) );
+		items = paymentsTimetable.map((payment, index) => {
+			return (<PaymentsTimetableItem key={payment.state.months} payment={payment}/>)} );
 
 		// setTimeout(()=>{
 		// 	if(items.length > this.firstShowRows){
