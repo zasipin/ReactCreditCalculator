@@ -9,46 +9,54 @@ export class PaymentsTimetableItem extends React.Component{
     constructor(props){
         super(props);
         let {payment, months, translate} = this.props;
+
+        this.months = months;
+        this.currency = translate('currency');
+        this.paymentState = payment.getData()
+
         this.state = {
-            // payment, 
-            months, 
-            translate, 
-            paymentState: payment.getData(),
-            currency: translate('currency')
+            // months, 
+            // translate, 
+            // paymentState: payment.getData(),
+            // currency: translate('currency')
         }
     }
 
     componentWillReceiveProps(nextProps){
         let {payment : nextPayment } = nextProps;
         let nextPaymentState = nextPayment.getData();
-        if(nextPaymentState.extraPay != this.state.paymentState.extraPay
-            || nextPaymentState.leftToPay != this.state.paymentState.leftToPay
-            || nextPaymentState.monthlyPay != this.state.paymentState.monthlyPay
-            || nextPaymentState.paymentForPercents != this.state.paymentState.paymentForPercents
-            || nextPaymentState.paymentForCredit != this.state.paymentState.paymentForCredit )
+        if(nextPaymentState.extraPay != this.paymentState.extraPay
+            || nextPaymentState.leftToPay != this.paymentState.leftToPay
+            || nextPaymentState.monthlyPay != this.paymentState.monthlyPay
+            || nextPaymentState.paymentForPercents != this.paymentState.paymentForPercents
+            || nextPaymentState.paymentForCredit != this.paymentState.paymentForCredit )
         {
-            this.setState((prevState) => {
-                return {
-                    // ...this.state,
-                    paymentState: nextPaymentState,
-                    currency: prevState.translate('currency')
-                }
-            });
+            this.paymentState = nextPaymentState;
+            // this.currency = prevState.translate('currency')
+            // this.setState((prevState) => {
+            //     return {
+            //         // ...this.state,
+            //         paymentState: nextPaymentState,
+            //         currency: prevState.translate('currency')
+            //     }
+            // });
         } else {
-            this.setState((prevState) => {
-                return {
-                    // ...this.state,
-                    translate: nextProps.translate,
-                    currency: nextProps.translate('currency')
-                }
-            });
+            this.translate = nextProps.translate;
+            this.currency = nextProps.translate('currency');
+            // this.setState((prevState) => {
+            //     return {
+            //         // ...this.state,
+            //         translate: nextProps.translate,
+            //         currency: nextProps.translate('currency')
+            //     }
+            // });
         }
 	}
 
     onChangeAdditionalPaymentHandler = (e) => {
         let {dispatch} = this.props,
              extraPay = e.target.value,
-             months = this.state.paymentState.months;
+             months = this.paymentState.months;
         if (isNaN(parseFloat(extraPay))) return;
         dispatch(actions.setAdditionalPaymentItem(months, extraPay));
     }
@@ -61,13 +69,13 @@ export class PaymentsTimetableItem extends React.Component{
         return (
             // <div>
                 <tr>
-                    <td>{this.state.months - this.state.paymentState.months + 1}</td>
-                    <td>{this.state.paymentState.monthlyPay} {this.state.currency}</td>
-                    <td><span className="dark-text">{this.state.paymentState.paymentForCredit}</span> {this.state.currency}</td>
-                    <td><span className="dark-text">{this.state.paymentState.paymentForPercents}</span> {this.state.currency}</td>
-                    <td><span className="dark-text">{this.state.paymentState.leftToPay}</span> {this.state.currency}</td>
+                    <td>{this.months - this.paymentState.months + 1}</td>
+                    <td>{this.paymentState.monthlyPay} {this.currency}</td>
+                    <td><span className="dark-text">{this.paymentState.paymentForCredit}</span> {this.currency}</td>
+                    <td><span className="dark-text">{this.paymentState.paymentForPercents}</span> {this.currency}</td>
+                    <td><span className="dark-text">{this.paymentState.leftToPay}</span> {this.currency}</td>
                     <td><span className="dark-text">
-                    <input type="number" id="additionalPayment" name="additionalPayment" value={this.state.paymentState.extraPay} min="0"
+                    <input type="number" id="additionalPayment" name="additionalPayment" value={this.paymentState.extraPay} min="0"
                             onChange={this.onChangeAdditionalPaymentHandler}
                             /></span></td>
                 </tr>
