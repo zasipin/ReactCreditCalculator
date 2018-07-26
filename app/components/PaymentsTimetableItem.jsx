@@ -8,10 +8,10 @@ export class PaymentsTimetableItem extends React.Component{
 
     constructor(props){
         super(props);
-        let {payment, months, translate} = this.props;
+        let {payment, months, currency} = this.props;
 
         this.months = months;
-        this.currency = translate('currency');
+        this.currency = currency;//translate('currency');
         this.paymentState = payment.getData()
 
         this.state = {
@@ -32,24 +32,9 @@ export class PaymentsTimetableItem extends React.Component{
             || nextPaymentState.paymentForCredit != this.paymentState.paymentForCredit )
         {
             this.paymentState = nextPaymentState;
-            // this.currency = prevState.translate('currency')
-            // this.setState((prevState) => {
-            //     return {
-            //         // ...this.state,
-            //         paymentState: nextPaymentState,
-            //         currency: prevState.translate('currency')
-            //     }
-            // });
         } else {
-            this.translate = nextProps.translate;
-            this.currency = nextProps.translate('currency');
-            // this.setState((prevState) => {
-            //     return {
-            //         // ...this.state,
-            //         translate: nextProps.translate,
-            //         currency: nextProps.translate('currency')
-            //     }
-            // });
+            //this.translate = nextProps.translate;
+            this.currency = nextProps.currency;//nextProps.translate('currency');
         }
 	}
 
@@ -62,9 +47,6 @@ export class PaymentsTimetableItem extends React.Component{
     }
 
     render() {
-        // var {payment, months, translate} = this.props;
-        // var paymentState = payment.getData();
-        // let min = 0;
 
         return (
             // <div>
@@ -88,7 +70,7 @@ export class PaymentsTimetableItem extends React.Component{
 const mapStateToProps = (state) => {
     return {
         months: state.activeCredit.months,
-        translate: getTranslate(state.locale)
+        //translate: getTranslate(state.locale)
     }
 };
 

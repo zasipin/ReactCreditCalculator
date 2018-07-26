@@ -12,6 +12,7 @@ export class PaymentsTimetableList extends React.Component{
 			items: []
 		}
 		this.firstShowRows = 25;
+		this.currency = this.props.translate('currency');
 	}	
 
 	componentWillMount(){
@@ -34,28 +35,20 @@ export class PaymentsTimetableList extends React.Component{
 	constructTimetableItems = ({sum, percents, months, paymentsTimetable}) => {
 		var index = 0, items = [];
 		let itemsPartial = [];
-		items = paymentsTimetable.map((payment, index) => {
-			return (<PaymentsTimetableItem key={payment.state.months} payment={payment}/>)} );
-
-		// setTimeout(()=>{
-		// 	if(items.length > this.firstShowRows){
-		// 		this.setState(()=> ({items: items}));
-		// 	}
-		// }, 10);
 		
-		// let sliceLength = items.length > this.firstShowRows ? this.firstShowRows : items.length;
-
-		// this.setState(()=> ({items: items.slice(0, sliceLength)}));
+		items = paymentsTimetable.map((payment, index) => {
+			return (<PaymentsTimetableItem key={payment.state.months} payment={payment} currency={this.currency}/>)} );
 
 		this.setState(()=> ({items}));
-
-		// return items.length > 0 ? items.slice(0, sliceLength) : this.renderEmptyRow();
 
 	}
 
 	componentWillReceiveProps(nextProps){
-		let {paymentsTimetable : nextPaymentsTimetable } = nextProps;
-		if(nextPaymentsTimetable != this.props.paymentsTimetable){
+		let {paymentsTimetable : nextPaymentsTimetable, translate: nextTranslate } = nextProps;
+		if(nextPaymentsTimetable != this.props.paymentsTimetable || 
+			this.props.translate != nextTranslate	){
+			
+			this.currency = nextTranslate('currency');
 			this.constructTimetableItems(nextProps);
 		}
 	}
